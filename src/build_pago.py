@@ -7,9 +7,9 @@ css=open(os.path.join(root,'src/style.css'),encoding='utf-8').read()+'\n'+open(o
 body=open(os.path.join(root,'src/pago/body.html'),encoding='utf-8').read()
 js=open(os.path.join(root,'src/pago/app.js'),encoding='utf-8').read()
 out=f'''{meta}
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#f6f2ea">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/figtree-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(){{var f=new URLSearchParams(location.search).get("fuente");if(f)document.documentElement.dataset.fuente=f}})()</script>
 <style>
 {css}
 </style>

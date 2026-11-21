@@ -8,6 +8,47 @@
   const track = (...a) => { if (typeof window.fbq === 'function') window.fbq(...a); };
   const WA = '51992878215';
 
+  /* entry: you open his chat. His photo appears in the middle while a gold ring closes around it, then it
+     flies in an arc to its place in the chat bar and the conversation starts. ~1.3 s, never blocks:
+     the page is usable from 0.76 s. Skipped with ?static / reduced motion; ?t=0.4 freezes a frame. */
+  let LOADER = 0;
+  const html = document.documentElement;
+  if (html.classList.contains('ld')) {
+    LOADER = 1000;
+    const ov = document.createElement('div');
+    ov.className = 'loader'; ov.setAttribute('aria-hidden', 'true');
+    ov.innerHTML = '<div class="ld-who"><span class="ld-pic"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48"/></svg><img src="assets/img/gianfranco-cara.jpg" alt="" width="84" height="84"></span><b>Gianfranco Bringas</b><small>Abogado · litigio y protección patrimonial</small></div>';
+    document.body.appendChild(ov);
+    const pic = $('.ld-pic', ov), ring = $('circle', ov), name = $('b', ov), sub = $('small', ov);
+    const dest = $('.bar .pic img');
+    const from = pic.getBoundingClientRect(), to = dest.getBoundingClientRect();
+    const dx = to.left + to.width / 2 - (from.left + from.width / 2), dy = to.top + to.height / 2 - (from.top + from.height / 2);
+    const s = to.width / from.width;
+    const EASE = 'cubic-bezier(.2,.8,.2,1)', SOFT = 'cubic-bezier(.65,0,.35,1)';
+    const page = $$('.bar, main, .legal');
+    const anims = [
+      pic.animate([{ opacity: 0, transform: 'scale(.86)' }, { opacity: 1, transform: 'scale(1)' }], { duration: 380, easing: EASE, fill: 'backwards' }),
+      ring.animate([{ strokeDashoffset: 302, opacity: 1 }, { strokeDashoffset: 0, opacity: 1, offset: .75 }, { strokeDashoffset: 0, opacity: 0 }], { duration: 920, delay: 60, easing: SOFT, fill: 'both' }),
+      name.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none', offset: .5 }, { opacity: 1, offset: .82 }, { opacity: 0 }], { duration: 760, delay: 140, easing: EASE, fill: 'both' }),
+      sub.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none', offset: .55 }, { opacity: 1, offset: .82 }, { opacity: 0 }], { duration: 680, delay: 220, easing: EASE, fill: 'both' }),
+      /* the arc: up and over, then down into the bar, and it hands over to the real photo */
+      pic.animate([
+        { transform: 'translate(0,0) scale(1)', opacity: 1 },
+        { transform: `translate(${dx * .42}px,${dy * .62 - 26}px) scale(${(1 + s) / 2})`, opacity: 1, offset: .55 },
+        { transform: `translate(${dx}px,${dy}px) scale(${s})`, opacity: 1, offset: .96 },
+        { transform: `translate(${dx}px,${dy}px) scale(${s})`, opacity: 0 }
+      ], { duration: 600, delay: 720, easing: SOFT, fill: 'forwards' }),
+      ov.animate([{ backgroundColor: 'rgba(246,242,234,1)' }, { backgroundColor: 'rgba(246,242,234,0)' }], { duration: 420, delay: 760, easing: 'ease', fill: 'both' }),
+      ...page.map(el => el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 420, delay: 760, easing: 'ease', fill: 'backwards' })),
+      dest.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 40, delay: 1280, fill: 'backwards' })
+    ];
+    html.classList.remove('ld');
+    setTimeout(() => { ov.style.pointerEvents = 'none'; }, 760);
+    const t = parseFloat(qs.get('t'));
+    if (!isNaN(t)) anims.forEach(a => { a.pause(); a.currentTime = t * 1000; });
+    else Promise.all(anims.map(a => a.finished)).then(() => ov.parentNode && ov.parentNode.removeChild(ov));
+  }
+
   /* messages pop in like a chat: the first four on load (they're "typing" at you), the rest as you scroll */
   const msgs = $$('.msg');
   const st = $('#st'), bar = $('.bar');
@@ -24,7 +65,7 @@
   if (STATIC || !('IntersectionObserver' in window)) msgs.forEach(m => m.classList.add('in'));
   else {
     const intro = $$('.msg.intro');
-    intro.forEach((m, i) => setTimeout(() => m.classList.add('in'), 250 + i * 280));
+    intro.forEach((m, i) => setTimeout(() => m.classList.add('in'), LOADER + 250 + i * 280));
     const io = new IntersectionObserver(es => es.forEach(e => {
       if (!e.isIntersecting || e.target.classList.contains('intro')) return;
       e.target.classList.add('in'); io.unobserve(e.target);
@@ -98,7 +139,7 @@
     track('trackCustom', 'AbrirCalendario');
     const f = $('iframe', cal);
     if (typeof cal.showModal !== 'function') return window.open(f.dataset.src, '_blank', 'noopener');
-    if (!f.src) f.src = f.dataset.src;
+    if (!f.src) { cal.classList.add('loading'); f.addEventListener('load', () => cal.classList.remove('loading'), { once: true }); f.src = f.dataset.src; }
     open(cal);
   }));
   const voice = $('#voice');
@@ -108,7 +149,7 @@
     const id = b.dataset.wistia;
     if (!wistia) { wistia = true; load('https://fast.wistia.com/player.js'); }
     load(`https://fast.wistia.com/embed/${id}.js`, true);
-    $('.vslot', voice).innerHTML = `<wistia-player media-id="${id}" aspect="0.5625" fit-strategy="cover" autoplay player-color="2346a0"></wistia-player>`;
+    $('.vslot', voice).innerHTML = `<wistia-player media-id="${id}" aspect="0.5625" fit-strategy="cover" autoplay player-color="0b1424"></wistia-player>`;
     open(voice);
   }));
 

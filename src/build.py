@@ -10,9 +10,10 @@ body=body.replace('<!--FAQ-->',faq)
 js=open(os.path.join(root,'src/app.js'),encoding='utf-8').read()
 out=f'''{head}
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/figtree-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="assets/img/vsl-poster.jpg">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#f6f2ea">
+<script>if(!/[?&]static/.test(location.search)&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&((performance.getEntriesByType('navigation')[0]||{{}}).type!=='back_forward'))document.documentElement.classList.add('ld')</script>
+<script>(function(){{var f=new URLSearchParams(location.search).get("fuente");if(f)document.documentElement.dataset.fuente=f}})()</script>
 <style>
 {css}
 </style>

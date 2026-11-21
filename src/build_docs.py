@@ -26,9 +26,9 @@ for src,name in pages:
     m=re.search(r'<!--HEADER:(.*?)-->',body)
     body=body.replace(m.group(0),HEADER.format(role=m.group(1)))
     out=f'''{head}
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#f6f2ea">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/figtree-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(){{var f=new URLSearchParams(location.search).get("fuente");if(f)document.documentElement.dataset.fuente=f}})()</script>
 <style>
 {css}
 </style>
