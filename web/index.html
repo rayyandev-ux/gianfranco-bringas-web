@@ -347,472 +347,302 @@
 }
 </script>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/cormorantgaramond-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="assets/img/vsl-poster.jpg">
-<meta name="theme-color" content="#f6f2ea">
+<meta name="theme-color" content="#070c16">
 <script>if(!/[?&]static/.test(location.search)&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&((performance.getEntriesByType('navigation')[0]||{}).type!=='back_forward'))document.documentElement.classList.add('ld')</script>
-<script>(function(){var f=new URLSearchParams(location.search).get("fuente");if(f)document.documentElement.dataset.fuente=f})()</script>
 <style>
-@font-face{font-family:"Libre Caslon Display";src:url(assets/fonts/librecaslon-display-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Libre Caslon Text";src:url(assets/fonts/librecaslon-text-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Libre Caslon Text";src:url(assets/fonts/librecaslon-text-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:"Newsreader";src:url(assets/fonts/newsreader-var.woff2) format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
-@font-face{font-family:"Source Serif 4";src:url(assets/fonts/sourceserif4-400.woff2) format("woff2");font-weight:200 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(assets/fonts/cormorantgaramond-var.woff2) format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
 @font-face{font-family:"Inter";src:url(assets/fonts/inter-400.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 
-/* v7 · "El chat", vestido de despacho. Same concept as v6 (scams arrive by WhatsApp, his testimonials ARE
-   WhatsApp videos, he answers by WhatsApp, so the page is the conversation), now in HIS brand: the noche,
-   papel, oro and vino of gianfrancobringas.com; Libre Caslon over Inter (see v7.2).
-   His bubbles are noche ink on papel, like a signed letter; findings are written in vino, routes in green,
-   as annotations, not badges. Variable names --blue/--y are kept so pago and docs follow: --blue = noche, --y = oro. */
+/* v9 · landing de oferta (pedido de Gianfranco, 20-11): la estructura de su referencia (blimbooster low-ticket)
+   con SU marca: noche, vino y oro de gianfrancobringas.com, Cormorant Garamond (la serif de su web) + Inter.
+   Solo datos reales: sin precios tachados, sin cifras que no tengan respaldo. */
 :root{
-  --wall:#f6f2ea;--paper-2:#ece5d7;--card:#fffdf8;
-  --blue:#0b1424;--blue-2:#1a2945;--ink:#121a2a;--muted:#5a6170;--soft:#8d8a82;--line:#ddd3c0;
-  --me:#ece5d7;--y:#d8bd86;--gold:#b8955a;--gold-d:#8e6f3c;--cream:#f3eee4;
-  --red:#8c2f39;--amber:#9a5b17;--olive:#6f6420;--green:#2f6b4a;
-  --serif:"Libre Caslon Text",Georgia,serif;--serif-d:"Libre Caslon Display","Libre Caslon Text",Georgia,serif;--sw:400;
-  --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
-  --spring:linear(0,.009,.035 2.1%,.141,.281 6.7%,.723 12.9%,.938 16.7%,1.017,1.077,1.121,1.149 24.3%,1.159,1.163,1.161,1.154 29.9%,1.129 32.8%,1.051 39.6%,1.017 43.1%,.991,.977 51%,.974 53.8%,.975 57.1%,.997 69.8%,1.003 76.9%,1);
-  --soft-e:linear(0,.06 2.2%,.24 5%,.7 11.4%,.93 16.3%,1.03 20.9%,1.06 25%,1.04 30.5%,1 40%,.995 50%,1);
+  --bg:#070c16;--bg2:#0b1424;--panel:#0e1829;--panel2:#13203a;
+  --line:rgba(216,189,134,.16);--line2:rgba(243,238,228,.09);
+  --gold:#d8bd86;--gold2:#b8955a;--gold3:#8e6f3c;--wine:#8c2f39;--wine-l:#d46b75;
+  --cream:#f3eee4;--muted:#a9b2c4;--soft:#7b8598;--green:#6fbf8e;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --cta:linear-gradient(100deg,#7d2531 0%,#a8434b 34%,#c79a5c 78%,#dcc08a 100%);
+  --ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
-body{background:var(--wall);color:var(--ink);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;font-feature-settings:"cv11","ss01"}
+html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:radial-gradient(1200px 700px at 12% -8%,rgba(140,47,57,.34),transparent 60%),radial-gradient(900px 600px at 100% 6%,rgba(184,149,90,.14),transparent 60%),var(--bg);background-repeat:no-repeat;color:var(--cream);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
 img,video{display:block;max-width:100%}
 a{color:inherit}
-button,input{font:inherit;color:inherit}
-button{background:none;border:0;cursor:pointer}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 ul,ol{list-style:none}
-.col{width:calc(100% - 24px);max-width:880px;margin-inline:auto}
-.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:99;background:#fff;padding:8px 12px}
+.wrap{width:calc(100% - 32px);max-width:1120px;margin-inline:auto}
+.narrow{max-width:720px}
+.c{text-align:center}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;z-index:99;background:#fff;color:#000;padding:8px 12px}
+h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em;line-height:1.05;font-variant-numeric:lining-nums}
+em{font-style:normal;color:var(--gold)}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border-radius:6px;background:var(--blue);color:var(--cream);font-weight:600;font-size:15px;letter-spacing:.01em;text-decoration:none;white-space:nowrap;transition:transform .5s var(--spring),background .2s}
-.btn:hover{background:var(--blue-2)}
-.btn:active{transform:scale(.95);transition-duration:.1s}
-.btn.y{background:var(--y);color:var(--blue)}
-.btn.y:hover{background:#e2cb9b}
-.btn.ghost{background:transparent;color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue)}
+/* top bar */
+.top{position:sticky;top:0;z-index:40;background:rgba(7,12,22,.82);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line2)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.brand{display:grid;text-decoration:none;line-height:1.1;flex:none}
+.brand b{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:.14em;color:var(--cream)}
+.brand small{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.strip{flex:1;text-align:center;font-size:13px;color:var(--muted);display:none}
+.strip b{color:var(--gold);font-weight:700}
+.cta-s{margin-left:auto;flex:none;min-height:40px;padding:0 16px;border-radius:999px;background:var(--cta);color:#1a0d0f;font-weight:700;font-size:13.5px;box-shadow:0 8px 22px -10px rgba(199,154,92,.7);transition:transform .4s var(--ease),filter .2s}
+.cta-s:hover{filter:brightness(1.07)}
+.cta-s:active{transform:scale(.95)}
+@media(min-width:860px){.strip{display:block}}
 
-/* header = the chat bar: who he is, an honest reply-hours status, and real chat actions */
-.bar{position:sticky;top:0;z-index:30;background:rgba(246,242,234,.94);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);box-shadow:0 1px 0 var(--line)}
-.bar .col{display:flex;align-items:center;gap:14px;height:72px}
-.me{display:flex;align-items:center;gap:12px;flex:1;min-width:0;text-decoration:none}
-.pic{position:relative;flex:none}
-.pic img{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:50% 30%;box-shadow:0 0 0 1px var(--gold)}
-.pic i{position:absolute;right:0;bottom:1px;width:12px;height:12px;border-radius:50%;background:#a9a395;box-shadow:0 0 0 2.5px var(--wall);transition:background .3s}
-.bar.open .pic i{background:#2f8a55}
-.who{min-width:0;line-height:1.2}
-.who b{display:block;font-family:var(--serif);font-size:21px;font-weight:var(--sw);letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.who small{display:flex;align-items:center;gap:0;font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;min-width:0;margin-top:1px}
-.who .role{overflow:hidden;text-overflow:ellipsis}
-.who .st{flex:none;transition:color .3s}
-.who .role+.st::before{content:"·";margin:0 7px;color:var(--soft)}
-.bar.open .who .st{color:#2a6f47;font-weight:600}
-.who .st.typing-now{color:var(--gold-d)!important;font-weight:600}
-.acts{display:flex;align-items:center;gap:4px;flex:none}
-.ic{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:var(--blue);text-decoration:none;transition:background .2s,transform .5s var(--spring)}
-.ic:hover{background:var(--paper-2)}
-.ic:active{transform:scale(.88);transition-duration:.1s}
-.ic svg{width:21px;height:21px}
-.book{margin-left:6px;padding:0 8px 0 18px;gap:10px;min-height:44px}
-.book em{font-style:normal;font-size:13px;font-weight:600;color:var(--y);border-left:1px solid rgba(216,189,134,.35);padding:2px 4px 2px 10px}
-.who .st .s{display:none}
-@media(max-width:640px){.who .role{display:none}.who .role+.st::before{display:none}.who .st .l{display:none}.who .st .s{display:inline}}
-@media(max-width:430px){.bar .col{gap:8px}.acts a.ic{display:none}.ic{width:38px;height:38px}.book{padding:0 16px;font-size:14.5px;margin-left:0}.book em{display:none}.pic img{width:42px;height:42px}.who b{font-size:19.5px}}
-
-/* title above the conversation */
-.title{padding:30px 0 4px}
-.title h1{font-family:var(--serif);font-size:clamp(40px,9.6vw,80px);font-weight:var(--sw);letter-spacing:-.012em;line-height:.98;color:var(--blue)}
-.title mark{background:none;color:var(--gold-d);padding:0}
-.title p{margin-top:14px;color:var(--muted);font-size:16.5px;line-height:1.55;max-width:560px}
-@media(min-width:900px){.title{padding-top:54px}.title p{font-size:18px}}
-
-/* chat */
-.chat{padding:10px 0 30px;display:flex;flex-direction:column;gap:6px}
-.day{align-self:center;color:var(--muted);font-size:12px;font-weight:600;letter-spacing:.06em;padding:4px 12px;margin:10px 0 4px}
-.sys{align-self:center;display:flex;align-items:center;gap:12px;text-align:center;color:var(--gold-d);font-family:var(--serif);font-size:17px;font-weight:var(--sw);padding:6px 0;margin:10px 0}
-.sys::before,.sys::after{content:"";width:34px;height:1px;background:var(--gold)}
-.msg{display:flex;gap:10px;align-items:flex-end;max-width:min(640px,94%);opacity:0;transform:translateY(14px) scale(.97);transform-origin:bottom left;transition:opacity .35s,transform .6s var(--spring)}
-.msg.in{opacity:1;transform:none}
-.msg+.msg{margin-top:-2px}
-.av{width:34px;height:34px;border-radius:50%;flex:none;object-fit:cover;background:#d6cdbb;display:grid;place-items:center;font-weight:var(--sw);color:#fff;font-size:15px;font-family:var(--serif)}
-img.av{box-shadow:0 0 0 1px var(--gold)}
-.av.ghost{visibility:hidden}
-.b{min-width:0;max-width:100%;background:var(--card);border-radius:16px 16px 16px 4px;padding:10px 15px 8px;box-shadow:0 0 0 1px var(--line);font-size:clamp(16px,1.9vw,18px);line-height:1.45}
-.b .name{display:block;font-size:12.5px;font-weight:600;letter-spacing:.01em;margin-bottom:2px}
-.b time{display:block;text-align:right;font-size:11px;color:var(--soft);margin-top:3px;font-variant-numeric:tabular-nums}
-.them .name{color:var(--red)}
-.them .b time{display:inline;margin-left:10px;float:right;margin-top:6px}
-.g .b{background:var(--blue);color:var(--cream);box-shadow:none}
-.g .b .name{color:var(--y)}
-.g .b time{color:rgba(243,238,228,.5)}
-.g .b mark{background:none;color:var(--y)}
-.g .b a{color:var(--cream);text-decoration-color:rgba(216,189,134,.7);text-underline-offset:3px}
-.big{font-family:var(--serif);font-size:clamp(26px,3.6vw,38px);font-weight:var(--sw);letter-spacing:-.005em;line-height:1.1}
-.big time{font-family:var(--sans);font-weight:400}
-.you{align-self:flex-end;transform-origin:bottom right}
-.you .b{background:var(--me);border-radius:16px 16px 4px 16px;box-shadow:none}
-.you .b time{color:#8a7d63}
-.wide{width:100%}
-.wide .b{flex:1}
-@media(min-width:900px){.av{width:42px;height:42px}}
-
-/* video bubble = the VSL */
-.vid{padding:5px;flex:1}
-.vframe{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:#000;width:100%}
+/* hero */
+.hero{padding:34px 0 10px}
+.hero-g{display:grid;gap:26px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);background:rgba(216,189,134,.06);border-radius:999px;padding:7px 13px;margin-bottom:18px}
+.pill i{width:6px;height:6px;border-radius:50%;background:var(--wine-l);box-shadow:0 0 0 3px rgba(212,107,117,.18)}
+.hero h1{font-size:clamp(40px,11vw,68px);line-height:1;color:var(--cream)}
+.hero h1 em{display:inline;background:linear-gradient(100deg,#d8bd86,#c79a5c 60%,#e6d0a0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{margin-top:18px;font-size:16.5px;color:var(--muted);max-width:560px}
+.vsl{margin:0}
+.vframe{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 0 0 1px var(--line),0 30px 70px -30px rgba(140,47,57,.55),0 20px 50px -30px rgba(0,0,0,.8)}
 .vframe img,.vframe video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .vframe video{object-fit:contain}
-.vframe .p{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(transparent 45%,rgba(11,20,36,.6))}
-.vframe .p span{width:74px;height:74px;border-radius:50%;background:rgba(246,242,234,.96);display:grid;place-items:center;box-shadow:0 0 0 1px var(--gold);transition:transform .5s var(--spring)}
-.vframe .p:active span{transform:scale(.9)}
-.vframe .p svg{width:24px;height:24px;margin-left:4px;fill:var(--blue)}
-.vframe .len{position:absolute;left:12px;bottom:10px;color:#fff;font-size:13px;font-weight:600;pointer-events:none}
-.vframe.on .p,.vframe.on .len,.vframe.on img{display:none}
-.vid .cap{display:flex;justify-content:space-between;gap:10px;padding:8px 10px 4px;font-size:15.5px}
-.vid .cap time{margin:0}
+.play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(transparent 40%,rgba(7,12,22,.55))}
+.play span{width:72px;height:72px;border-radius:50%;background:var(--cta);display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(199,154,92,.7);transition:transform .4s var(--ease)}
+.play:hover span{transform:scale(1.06)}
+.play svg{width:24px;height:24px;margin-left:4px;fill:#1a0d0f}
+.vframe.on .play,.vframe.on img{display:none}
+.vsl figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:10px;font-size:13.5px;color:var(--muted)}
+.vsl figcaption b{color:var(--cream);font-weight:600}
+@media(min-width:900px){.hero{padding:70px 0 20px}.hero-g{grid-template-columns:1.05fr 1fr;gap:56px}.hero h1{font-size:clamp(54px,5.4vw,72px)}.lead{font-size:18px}}
 
-/* poll (WhatsApp-style) */
-.poll .q{font-family:var(--serif);font-weight:var(--sw);font-size:clamp(24px,2.8vw,30px);letter-spacing:0;line-height:1.15}
-.poll .hint{font-size:12.5px;opacity:.65;margin:4px 0 10px}
-.opt{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;width:100%;text-align:left;padding:11px 4px;border-top:1px solid rgba(216,189,134,.18);font-size:clamp(15.5px,1.8vw,17px);line-height:1.4;transition:background .2s}
-.opt:first-of-type{border-top:0}
-.opt .ck{width:22px;height:22px;border-radius:50%;box-shadow:inset 0 0 0 1.5px rgba(216,189,134,.75);display:grid;place-items:center;transition:background .2s,transform .5s var(--spring),box-shadow .2s}
-.opt .ck svg{width:13px;height:13px;opacity:0;transition:opacity .2s}
-.opt[aria-pressed=true] .ck,.opt[aria-checked=true] .ck{background:var(--y);box-shadow:none;animation:pop .5s var(--spring)}
-.opt[aria-pressed=true] .ck svg,.opt[aria-checked=true] .ck svg{opacity:1}
-.opt:active .ck{transform:scale(.85)}
-.poll-foot{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-top:8px;padding-top:9px;border-top:1px solid rgba(216,189,134,.18);font-size:13px;opacity:.85}
-.poll-foot b{color:var(--y)}
-@keyframes pop{0%{transform:scale(.6)}100%{transform:scale(1)}}
+/* offer card + CTA */
+.offer{margin:34px auto 0;max-width:420px;text-align:center;padding:20px 20px 18px;border-radius:18px;background:linear-gradient(180deg,rgba(19,32,58,.9),rgba(11,20,36,.9));box-shadow:0 0 0 1px var(--line),0 24px 60px -30px rgba(0,0,0,.8)}
+.o-k{font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.o-p{display:flex;justify-content:center;align-items:baseline;gap:8px;margin:4px 0 2px}
+.o-p b{font-family:var(--serif);font-size:64px;line-height:1;font-weight:700;color:var(--gold);font-variant-numeric:lining-nums}
+.o-p span{font-size:18px;color:var(--muted);font-weight:500}
+.o-n{font-size:13px;color:var(--wine-l);font-weight:600}
+.cta-w{display:flex;justify-content:center;margin-top:16px}
+.cta{display:grid;justify-items:center;gap:3px;width:100%;max-width:420px;padding:16px 20px 13px;border-radius:16px;background:var(--cta);color:#1a0d0f;box-shadow:0 14px 40px -14px rgba(168,67,75,.75),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .4s var(--ease),filter .2s;text-align:center}
+.cta span{font-weight:800;font-size:16.5px;letter-spacing:.02em;text-transform:uppercase;line-height:1.25}
+.cta i{font-style:normal;display:inline-block;transition:transform .3s var(--ease)}
+.cta:hover{filter:brightness(1.06)}.cta:hover i{transform:translateX(4px)}
+.cta:active{transform:scale(.97)}
+.cta small{font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:.78}
 
-/* list message: what he tells you (a written list, not three cards) */
-.layers{margin-top:10px;display:grid;gap:0;border-top:1px solid rgba(216,189,134,.25)}
-.layers div{padding:12px 0 11px 16px;border-bottom:1px solid rgba(216,189,134,.25);position:relative}
-.layers div::before{content:"";position:absolute;left:0;top:16px;bottom:15px;width:2px;background:var(--y)}
-.layers b{display:block;font-family:var(--serif);font-size:23px;font-weight:var(--sw);line-height:1.15;color:var(--cream)}
-.layers small{opacity:.78;font-size:15px;line-height:1.45;display:block;margin-top:3px}
+/* sections */
+.sec{padding:64px 0 0}
+.sec h2{font-size:clamp(32px,8vw,48px);color:var(--cream)}
+.k{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--wine-l);margin-bottom:10px}
+@media(min-width:900px){.sec{padding:96px 0 0}}
 
-/* pdf attachment */
-.pdf{display:flex;gap:12px;align-items:center;text-decoration:none;background:rgba(243,238,228,.08);border-radius:10px;padding:10px 12px;margin:6px 0 4px;transition:background .2s}
-.pdf:hover{background:rgba(243,238,228,.14)}
-.pdf i{width:40px;height:48px;border-radius:4px;background:var(--cream);color:var(--red);display:grid;place-items:center;font-style:normal;font-weight:700;font-size:11px;flex:none}
-.pdf b{display:block;font-size:15.5px}.pdf small{font-size:12.5px;opacity:.78}
-.map{margin-top:8px;background:var(--card);color:var(--ink);border-radius:10px;padding:10px 12px;font-size:13.5px}
-.map li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
-.map li:last-child{border-bottom:0}
-/* risk levels are written annotations (small caps in their colour), not pills */
-.lvl{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;color:var(--c)}
-.l-red{--c:var(--red)}.l-amber{--c:var(--amber)}.l-olive{--c:var(--olive)}.l-green{--c:var(--green)}
-.map .score{display:flex;align-items:center;gap:10px;margin-top:6px;padding:8px 10px;border-radius:8px;background:#f3e4e2;color:var(--red);font-weight:700}
-.map .score span{font-family:var(--serif);font-size:30px}
+/* story */
+.story blockquote{font-family:var(--serif);font-weight:700;font-size:clamp(30px,7.6vw,46px);line-height:1.08;text-align:center;color:var(--cream)}
+.story .narrow>p{margin:16px auto 0;text-align:center;color:var(--muted);font-size:16.5px;max-width:620px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:30px auto 0;max-width:880px}
+.facts div{display:grid;justify-items:center;text-align:center;gap:4px;padding:16px 8px;border-radius:14px;background:var(--panel);box-shadow:0 0 0 1px var(--line2)}
+.facts b{font-family:var(--serif);font-size:clamp(34px,9vw,52px);line-height:1;color:var(--gold);font-variant-numeric:lining-nums}
+.facts span{font-size:11.5px;line-height:1.35;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.proof{display:grid;gap:12px;margin:12px auto 0;max-width:880px}
+.ph{position:relative;margin:0;border-radius:16px;overflow:hidden;box-shadow:0 0 0 1px var(--line2)}
+.ph img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 35%}
+.ph figcaption{position:absolute;left:12px;bottom:10px;font-size:12.5px;font-weight:600;background:rgba(7,12,22,.7);padding:5px 10px;border-radius:999px;backdrop-filter:blur(6px)}
+.creds{display:grid;gap:8px}
+.creds a{display:grid;gap:2px;padding:14px 16px;border-radius:14px;background:var(--panel);box-shadow:0 0 0 1px var(--line2);text-decoration:none;transition:box-shadow .2s,background .2s}
+.creds a:hover{box-shadow:0 0 0 1px var(--line);background:var(--panel2)}
+.creds small{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold2)}
+.creds b{font-weight:600;font-size:15.5px;line-height:1.35}
+.creds span{font-size:13px;color:var(--muted)}
+@media(min-width:760px){.proof{grid-template-columns:1fr 1fr;align-items:stretch}.ph img{height:100%;aspect-ratio:auto}.creds{align-content:center}}
 
-/* forwarded = cases (a file note: amount in serif, finding in vino, route in green) */
-.fwd{font-size:12.5px;font-style:italic;color:var(--soft);display:flex;align-items:center;gap:5px;margin-bottom:6px}
-.case .b{background:var(--card)!important;box-shadow:0 0 0 1px var(--line)}
-.case .amt{font-family:var(--serif);font-size:clamp(32px,4vw,42px);font-weight:var(--sw);line-height:1;color:var(--blue)}
-.case .amt small{font-family:var(--sans);font-size:13.5px;font-weight:500;color:var(--muted);margin-left:8px}
-.case .k{font-size:12px;color:var(--gold-d);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
-.case .hr{display:grid;gap:0;margin-top:12px;font-size:15.5px;border-top:1px solid var(--line)}
-.case .hr p{display:grid;grid-template-columns:86px 1fr;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
-.case .hr p:last-child{border-bottom:0;padding-bottom:2px}
-.case .code{font-size:11.5px;color:var(--soft);font-weight:600;margin-top:6px}
+/* pain */
+.pain h2{text-align:center}
+.pain .k{text-align:center}
+.heard{display:grid;gap:8px;margin:24px auto 0;max-width:560px}
+.heard li{padding:13px 16px;border-radius:12px;background:rgba(140,47,57,.12);box-shadow:inset 0 0 0 1px rgba(212,107,117,.22);font-size:17px;font-style:italic;color:#efd9db}
+.pain h3{margin-top:30px;text-align:center;font-size:clamp(26px,6vw,34px);color:var(--gold)}
+.pain-p{margin:10px auto 0;max-width:600px;text-align:center;color:var(--muted);font-size:16.5px}
+.pain-p b{color:var(--cream);font-weight:600}
 
-/* video notes = testimonials */
-.notes{display:grid;grid-auto-flow:column;grid-auto-columns:118px;gap:8px;overflow-x:auto;padding:6px 2px 4px;scrollbar-width:none;margin-top:4px}
+/* checklist */
+.gets h2{text-align:center}
+.checks{display:grid;gap:8px;margin-top:24px}
+.checks li{position:relative;padding:14px 16px 14px 50px;border-radius:14px;background:var(--panel);box-shadow:0 0 0 1px var(--line2);font-size:16px;color:var(--muted)}
+.checks li b{color:var(--cream);font-weight:600}
+.checks li::before{content:"";position:absolute;left:16px;top:15px;width:22px;height:22px;border-radius:50%;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3 7.3l2.6 2.6L11 4.4' fill='none' stroke='%23070c16' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.gold-line{margin:22px auto 0;text-align:center;font-family:var(--serif);font-weight:700;font-size:clamp(22px,5.4vw,28px);line-height:1.2;color:var(--gold);max-width:620px}
+
+/* moments */
+.mcards{display:grid;gap:14px;margin-top:28px}
+.mcard{display:grid;gap:10px;align-content:start;padding:22px 20px;border-radius:20px;background:linear-gradient(180deg,var(--panel2),var(--panel));box-shadow:0 0 0 1px var(--line),0 30px 60px -40px rgba(0,0,0,.9)}
+.tag{justify-self:start;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#1a0d0f;background:var(--gold);padding:4px 10px;border-radius:6px}
+.mcard h3{font-size:28px;line-height:1.08}
+.mcard>p:not(.tag){color:var(--muted);font-size:15.5px}
+.case{margin-top:6px;padding:14px;border-radius:14px;background:rgba(7,12,22,.55);box-shadow:inset 0 0 0 1px var(--line2);display:grid;gap:8px;font-size:14.5px}
+.cs-k{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.cs-a{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1;color:var(--cream);font-variant-numeric:lining-nums}
+.cs-a small{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--muted)}
+.case p:not(.cs-k):not(.cs-a){display:grid;gap:2px}
+.case .h,.case .r{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.case .h{color:var(--wine-l)}.case .r{color:var(--green)}
+.note-c{margin-top:12px;text-align:center;font-size:12.5px;color:var(--soft)}
+@media(min-width:900px){.mcards{grid-template-columns:repeat(3,1fr)}}
+
+/* testimonials */
+.notes{display:grid;grid-auto-flow:column;grid-auto-columns:42%;gap:10px;overflow-x:auto;scrollbar-width:none;margin-top:24px;padding-bottom:4px;scroll-snap-type:x mandatory}
 .notes::-webkit-scrollbar{display:none}
-.note{position:relative;aspect-ratio:9/16;border-radius:12px;overflow:hidden;background:#222;transition:transform .5s var(--spring)}
-.note:active{transform:scale(.95);transition-duration:.1s}
+.note{position:relative;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#111;box-shadow:0 0 0 1px var(--line2);scroll-snap-align:start;transition:transform .4s var(--ease)}
+.note:active{transform:scale(.97)}
 .note img{width:100%;height:100%;object-fit:cover}
-.note span{position:absolute;left:6px;bottom:6px;background:rgba(11,20,36,.7);color:var(--cream);font-size:11.5px;font-weight:600;border-radius:999px;padding:3px 8px}
-@media(min-width:900px){.notes{grid-auto-columns:1fr;grid-auto-flow:row;grid-template-columns:repeat(5,1fr);overflow:visible}}
+.note span{position:absolute;left:8px;bottom:8px;background:rgba(7,12,22,.75);color:var(--cream);font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px}
+@media(min-width:900px){.notes{grid-auto-flow:row;grid-template-columns:repeat(5,1fr);overflow:visible}}
 
-/* photo message = about */
-.photo{padding:4px;flex:1}
-.photo img{border-radius:12px;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 40%}
-.photo .cap{padding:8px 10px 2px}
-.books{display:grid;gap:0;margin-top:10px;border-top:1px solid rgba(216,189,134,.25)}
-.books a{display:flex;justify-content:space-between;gap:10px;padding:11px 2px;font-size:14.5px;text-decoration:none;border-bottom:1px solid rgba(216,189,134,.25);transition:color .2s}
-.books a:hover{color:var(--y)}
-.books b{color:var(--y);font-weight:600}
+/* stack */
+.sum{max-width:620px;margin:0 auto;padding:30px 20px 24px;border-radius:24px;text-align:center;background:linear-gradient(180deg,var(--panel2),var(--bg2));box-shadow:0 0 0 1px var(--line),0 40px 90px -40px rgba(140,47,57,.55)}
+.sum-b{font-family:var(--serif);font-weight:700;font-size:40px;letter-spacing:.14em;line-height:1;color:var(--cream)}
+.sum-s{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-top:6px}
+.sum h2{margin-top:20px;font-size:42px;color:var(--gold)}
+.sum-l{font-size:14px;color:var(--muted);margin-top:4px}
+.sum ul{margin:18px 0 0;text-align:left;border-radius:14px;box-shadow:inset 0 0 0 1px var(--line2);padding:4px 16px}
+.sum li{position:relative;padding:12px 0 12px 28px;border-top:1px solid var(--line2);font-size:15px}
+.sum li:first-child{border-top:0}
+.sum li::before{content:"✓";position:absolute;left:0;top:12px;color:var(--gold);font-weight:800}
+.sum-t{display:flex;justify-content:center;align-items:baseline;gap:10px;margin:20px 0 16px}
+.sum-t span{font-size:15px;color:var(--muted)}
+.sum-t b{font-family:var(--serif);font-size:58px;line-height:1;color:var(--gold);font-variant-numeric:lining-nums}
+.sum .cta{margin:0 auto}
+.sum-pay{display:inline-block;margin-top:14px;font-size:14px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+.sum-pay:hover{color:var(--cream)}
+.guar{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;max-width:620px;margin:14px auto 0;padding:18px;border-radius:18px;background:var(--panel);box-shadow:0 0 0 1px var(--line2)}
+.seal{width:76px;height:76px;border-radius:50%;display:grid;place-content:center;text-align:center;background:radial-gradient(circle at 35% 30%,#f0dcae,#c79a5c 55%,#8e6f3c);color:#1a0d0f;box-shadow:0 0 0 3px rgba(216,189,134,.25),0 10px 24px -10px rgba(199,154,92,.7)}
+.seal b{font-family:var(--serif);font-size:24px;line-height:1}
+.seal small{font-size:8.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.guar h3{font-size:22px;line-height:1.15}
+.guar p{margin-top:6px;font-size:14px;color:var(--muted)}
+.steps{counter-reset:s;display:grid;gap:8px;max-width:620px;margin:14px auto 0}
+.steps li{counter-increment:s;position:relative;display:grid;padding:14px 16px 14px 56px;border-radius:14px;background:var(--panel);box-shadow:0 0 0 1px var(--line2)}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;color:var(--gold);box-shadow:inset 0 0 0 1px var(--line)}
+.steps b{font-weight:600}
+.steps span{font-size:14px;color:var(--muted)}
 
-/* quick replies */
-.qr{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 4px 44px}
-@media(min-width:900px){.qr{margin-left:52px}}
-
-/* faq inside a bubble */
-.faqb .ftabs{display:flex;gap:4px;overflow-x:auto;margin:10px 0 6px;scrollbar-width:none;border-bottom:1px solid rgba(216,189,134,.25)}
-.faqb .ftabs::-webkit-scrollbar{display:none}
-.ftab{white-space:nowrap;font-size:13.5px;font-weight:600;padding:9px 10px 10px;color:rgba(243,238,228,.65);box-shadow:inset 0 -2px 0 transparent;transition:color .2s,box-shadow .2s}
+/* faq */
+.faq-l{text-align:center;color:var(--muted);margin-top:8px;font-size:15px}
+.ftabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:22px 0 10px;padding-bottom:2px}
+.ftabs::-webkit-scrollbar{display:none}
+.ftab{flex:none;padding:9px 14px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line2);transition:background .2s,color .2s}
 .ftab:hover{color:var(--cream)}
-.ftab.is-on{color:var(--cream);box-shadow:inset 0 -2px 0 var(--y)}
-.ftab small{opacity:.6;margin-left:4px}
-.fgroup>p{font-size:12.5px;opacity:.65;padding:6px 0}
-.fgroup details{border-top:1px solid rgba(216,189,134,.18)}
-.fgroup summary{list-style:none;display:flex;justify-content:space-between;gap:14px;padding:13px 0;cursor:pointer;font-weight:600;font-size:16px;line-height:1.4}
+.ftab.is-on{background:var(--gold);color:#1a0d0f;box-shadow:none}
+.fbox{border-radius:18px;background:var(--panel);box-shadow:0 0 0 1px var(--line2);padding:4px 18px}
+.fgroup>p{font-size:12.5px;color:var(--soft);padding:12px 0 8px}
+.fgroup details{border-top:1px solid var(--line2)}
+.fgroup summary{list-style:none;display:flex;justify-content:space-between;gap:14px;padding:15px 0;cursor:pointer;font-weight:600;font-size:15.5px;line-height:1.4}
 .fgroup summary::-webkit-details-marker{display:none}
-.fgroup summary::after{content:"+";flex:none;width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(216,189,134,.5);color:var(--y);display:grid;place-items:center;line-height:24px;text-align:center;font-weight:500;transition:transform .5s var(--spring),background .2s}
-.fgroup details[open] summary::after{transform:rotate(45deg);background:var(--y);color:var(--blue);box-shadow:none}
-.fgroup details p{font-size:15px;opacity:.85;padding-bottom:12px}
+.fgroup summary::after{content:"+";flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:var(--gold);box-shadow:inset 0 0 0 1px var(--line);transition:transform .35s var(--ease),background .2s}
+.fgroup details[open] summary::after{transform:rotate(45deg);background:var(--gold);color:#1a0d0f;box-shadow:none}
+.fgroup details p{font-size:14.5px;color:var(--muted);padding-bottom:14px}
 
-/* typing */
-.typing{display:inline-flex;gap:4px;padding:14px 16px}
-.typing i{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:t 1s infinite}
-.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
-@keyframes t{50%{transform:translateY(-4px);opacity:.5}}
-
-/* legal line under the chat */
-.legal{padding:14px 0 150px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;font-size:12.5px;color:var(--muted);text-align:center;border-top:1px solid var(--line);margin-top:10px}
-.legal span:first-child{font-family:var(--serif);font-size:16px;font-weight:var(--sw);color:var(--blue);flex-basis:100%}
-.legal a{text-decoration:none}.legal a:hover{color:var(--blue)}
-
-/* footer = the compose box */
-.compose{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(246,242,234,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:8px 0 calc(8px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .6s var(--soft-e)}
-.compose.on{transform:none}
-.compose .chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:6px;font-size:12.5px}
-.compose .chips:empty{display:none}
-.compose .chips span{flex:none;background:var(--card);border-radius:999px;padding:4px 10px;font-weight:600;color:var(--gold-d);box-shadow:inset 0 0 0 1px var(--line)}
-.compose form{display:flex;gap:8px;align-items:center}
-.compose input{flex:1;min-width:0;min-height:50px;border-radius:999px;border:0;background:var(--card);padding:0 18px;font-size:16px;outline:none;box-shadow:inset 0 0 0 1px var(--line)}
-.compose input:focus{box-shadow:inset 0 0 0 1.5px var(--gold)}
-.compose .send{width:50px;height:50px;border-radius:50%;background:var(--blue);display:grid;place-items:center;flex:none;transition:transform .5s var(--spring)}
-.compose .send:active{transform:scale(.88)}
-.compose svg{width:20px;height:20px;fill:var(--y)}
-.compose p{font-size:11.5px;color:var(--muted);margin-top:5px;text-align:center}
+/* close + footer */
+.close h2{font-size:clamp(34px,8.4vw,54px)}
+.close p{margin:12px auto 0;max-width:560px;color:var(--muted);font-size:16.5px}
+.wa{display:inline-block;margin-top:16px;font-size:14.5px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+.wa:hover{color:var(--cream)}
+.foot{margin-top:80px;padding:28px 0 40px;border-top:1px solid var(--line2);text-align:center}
+.f-b{font-family:var(--serif);font-weight:700;font-size:20px;letter-spacing:.12em}
+.f-b span{letter-spacing:0;font-weight:500;color:var(--muted)}
+.f-l{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;margin-top:10px;font-size:13px;color:var(--muted)}
+.f-l a{text-decoration:none;padding:6px 0}.f-l a:hover{color:var(--cream)}
+.f-d{margin:10px auto 0;max-width:560px;font-size:12px;color:var(--soft)}
 
 /* dialogs */
-dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none}
-dialog::backdrop{background:rgba(11,20,36,.78);backdrop-filter:blur(4px)}
-.dlg{background:#fff;border-radius:16px;overflow:hidden;width:min(760px,calc(100vw - 24px));height:min(780px,calc(100dvh - 40px));display:flex;flex-direction:column}
-.dlg-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);font-family:var(--serif);font-weight:var(--sw);font-size:21px}
-.dlg-h a{font-family:var(--sans);font-weight:500;font-size:13px;color:var(--muted)}
-.dlg iframe{flex:1;width:100%;border:0}
-.x{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--wall);font-size:16px;color:var(--ink);flex:none}
-.vdlg{width:min(400px,calc(100vw - 32px));aspect-ratio:9/16;max-height:calc(100dvh - 40px);background:#000;border-radius:16px;overflow:hidden;position:relative}
+dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;margin:auto}
+dialog::backdrop{background:rgba(3,6,12,.8);backdrop-filter:blur(4px)}
+dialog[open] .dlg{animation:sheetIn .45s var(--ease)}
+@keyframes sheetIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+.dlg{background:#fff;color:#121a2a;border-radius:20px;overflow:hidden;width:min(820px,calc(100vw - 32px));height:min(760px,calc(100dvh - 48px));display:flex;flex-direction:column}
+.dlg-h{position:relative;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 12px 12px 20px;border-bottom:1px solid #e6e1d8;font-family:var(--serif);font-weight:700;font-size:22px}
+.dlg-h .grab{display:none}
+.dlg-acts{display:flex;gap:6px;align-items:center}
+.dlg-acts a{font-family:var(--sans);font-size:12.5px;color:#5a6170;text-decoration:none;padding:8px 10px;border-radius:999px}
+.x{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#efebe3;color:#121a2a;font-size:13px}
+.cal-body{position:relative;flex:1;display:flex}
+.cal-body iframe{flex:1;width:100%;border:0;transition:opacity .4s}
+.cal-wait{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#5a6170;font-size:14px}
+.loading .cal-wait{display:flex}.loading .cal-body iframe{opacity:0}
+.spin{width:26px;height:26px;border-radius:50%;border:2px solid #e6e1d8;border-top-color:var(--gold2);animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vdlg{position:relative;width:min(400px,calc(100vw - 32px));aspect-ratio:9/16;max-height:calc(100dvh - 40px);background:#000;border-radius:20px;overflow:hidden}
 .vdlg wistia-player{width:100%;height:100%;display:block}
 .vdlg .x{position:absolute;right:10px;top:10px;z-index:3}
-
-.static .msg{opacity:1!important;transform:none!important;transition:none!important}
-.static .compose{transform:none}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.msg{opacity:1;transform:none}.compose{transform:none}}
-
-/* desktop: a wide conversation, not a phone column */
-@media(min-width:1100px){.col{max-width:1040px}.msg{max-width:min(780px,94%)}.msg.wide{max-width:100%}.b{font-size:18.5px}.title h1{font-size:84px}.vframe .p span{width:88px;height:88px}}
-.photo img{max-height:440px}
-
-/* sections: inline links on wide screens, a ⋮ menu (like WhatsApp) everywhere else */
-.links{display:none;align-items:center;gap:2px;flex:none}
-.links a{font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;padding:8px 10px;box-shadow:inset 0 -1px 0 transparent;transition:color .2s,box-shadow .2s}
-.links a:hover,.links a.on{color:var(--blue);box-shadow:inset 0 -1px 0 var(--gold)}
-.bar .col{position:relative}
-.menu{position:absolute;right:0;top:calc(100% + 6px);min-width:240px;background:var(--card);border-radius:12px;padding:6px;box-shadow:0 0 0 1px var(--line),0 24px 50px -16px rgba(11,20,36,.35);transform-origin:top right;animation:menuIn .35s var(--spring)}
-.menu a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border-radius:8px;font-size:15.5px;font-weight:500;text-decoration:none;color:var(--ink)}
-.menu a:hover,.menu a:focus-visible{background:var(--paper-2);color:var(--blue);outline:none}
-.menu small{font-size:12.5px;color:var(--soft);font-weight:500}
-@keyframes menuIn{from{opacity:0;transform:scale(.92) translateY(-6px)}to{opacity:1;transform:none}}
-@media(min-width:1180px){.links{display:flex}.more{display:none}.who .role{display:none}.who .role+.st::before{display:none}}
-/* the message you jumped to lights up for a moment */
-.msg.flash>.b{animation:flash 1.4s ease}
-@keyframes flash{0%,100%{outline:0 solid transparent}25%{outline:2px solid var(--gold);outline-offset:3px}}
-html{scroll-padding-top:90px}
-@media(max-width:820px){.who .role{display:none}.who .role+.st::before{display:none}}
-@media(max-width:430px){.acts [data-play-vsl]{display:none}}
-/* buttons inside bubbles keep their own colours */
-.b .btn.y{color:var(--blue)!important}
-.b .btn.ghost{color:var(--cream)!important;box-shadow:inset 0 0 0 1px rgba(216,189,134,.6);background:transparent}
-.b .btn.ghost:hover{background:rgba(243,238,228,.08)}
-
-/* v7 fixes: the big bubble wins over the desktop .b size; amounts use lining figures; findings stack on phones */
-.b.big{font-size:clamp(26px,3.6vw,38px)}
-.big,.case .amt,.title h1,.poll .q,.map .score span,.legal span:first-child{font-variant-numeric:lining-nums}
-@media(max-width:560px){.case .hr p{grid-template-columns:1fr;gap:2px}}
-.sys{white-space:nowrap;font-size:clamp(14.5px,4vw,17px);gap:10px}
-.sys::before,.sys::after{width:clamp(16px,5vw,34px);flex:none}
-
-/* v7.1 · on desktop the conversation is a centred column (like reading a letter), not a full-width strip.
-   The chat bar keeps its width for the section links; the content and the compose box narrow to 760px. */
-@media(min-width:900px){
-  main.col,.compose .col{max-width:760px}
-  .title{text-align:center}
-  .title p{margin-inline:auto}
-  .msg{max-width:min(620px,92%)}
-  .title h1{font-size:clamp(56px,6vw,76px)}
-}
-@media(min-width:1100px){.b{font-size:18px}}
-@media(min-width:900px){.title h1{font-size:clamp(52px,5.2vw,68px);text-wrap:balance}}
-
-/* v7.2 · type: Libre Caslon (Display for the big lines, Text below ~24px). Cormorant read as generic "AI elegance".
-   ?fuente=newsreader | source swaps the serif to compare (dev hook). */
-.title h1,.b.big,.big,.case .amt{font-family:var(--serif-d)}
-.title h1{letter-spacing:-.005em;line-height:1.04}
-.b.big{line-height:1.15}
-[data-fuente=newsreader]{--serif:Newsreader,Georgia,serif;--serif-d:Newsreader,Georgia,serif;--sw:500}
-[data-fuente=source]{--serif:"Source Serif 4",Georgia,serif;--serif-d:"Source Serif 4",Georgia,serif;--sw:600}
-
-/* v7.3 · header in the Apple manner, in his colours: a slim frosted bar, small type, links centred,
-   a single navy pill. Still the chat bar (photo, name, honest status). */
-.bar{background:rgba(246,242,234,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);box-shadow:0 1px 0 rgba(11,20,36,.08)}
-.bar .col{height:52px;gap:10px;max-width:980px}
-.me{flex:none;gap:9px}
-.pic img{width:30px;height:30px;box-shadow:0 0 0 1px rgba(184,149,90,.7)}
-.pic i{width:9px;height:9px;right:-1px;bottom:0;box-shadow:0 0 0 2px var(--wall)}
-.who b{font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--blue)}
-.who small{font-size:11px;margin-top:0}
-.links{flex:1;justify-content:center;gap:0}
-.links a{font-size:12.5px;font-weight:400;color:rgba(18,26,42,.8);padding:6px 11px;box-shadow:none;letter-spacing:-.005em}
-.links a:hover,.links a.on{color:var(--blue);box-shadow:none}
-.links a.on{font-weight:500}
-.acts{margin-left:auto;gap:2px}
-.ic{width:34px;height:34px;color:rgba(18,26,42,.78)}
-.ic:hover{background:rgba(11,20,36,.05);color:var(--blue)}
-.ic svg{width:17px;height:17px}
-.book{min-height:32px;height:32px;padding:0 13px;border-radius:999px;font-size:12.5px;font-weight:500;gap:6px;margin-left:6px;letter-spacing:0}
-.book em{font-size:12.5px;font-weight:400;color:rgba(216,189,134,.95);border:0;padding:0}
-.book em::before{content:"· ";color:rgba(243,238,228,.45)}
-.menu{top:calc(100% + 8px);background:rgba(250,247,241,.86);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-radius:14px;box-shadow:0 0 0 1px rgba(11,20,36,.07),0 18px 40px -14px rgba(11,20,36,.28)}
-.menu a{font-size:14.5px;font-weight:400;padding:10px 14px}
-@media(max-width:430px){.bar .col{height:50px}.who b{font-size:14.5px}.book{padding:0 14px;font-size:13px}.ic{width:34px;height:34px}}
-html{scroll-padding-top:70px}
-
-/* booking sheet: centred and animated on desktop, a bottom sheet on phones, with a loading state
-   while the GoHighLevel calendar arrives (it takes a few seconds) */
-dialog{margin:auto}
-dialog[open] .dlg{animation:sheetIn .5s var(--soft-e)}
-dialog[open]::backdrop{animation:fadeIn .3s ease}
-@keyframes sheetIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.dlg{background:var(--card);border-radius:18px;width:min(820px,calc(100vw - 32px));height:min(760px,calc(100dvh - 48px));box-shadow:0 40px 80px -30px rgba(0,0,0,.5)}
-.dlg-h{position:relative;padding:12px 12px 12px 22px;font-size:21px;border-bottom:1px solid var(--line)}
-.dlg-h .grab{display:none}
-.dlg-acts{display:flex;gap:6px;align-items:center;flex:none}
-.dlg-acts a{font-family:var(--sans);font-size:12.5px;color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:999px}
-.dlg-acts a:hover{color:var(--blue);background:var(--paper-2)}
-.x{width:32px;height:32px;font-size:13px;background:var(--paper-2);transition:transform .5s var(--spring)}
-.x:active{transform:scale(.9)}
-.cal-body{position:relative;flex:1;display:flex;background:#fff}
-.cal-body iframe{flex:1;width:100%;border:0;opacity:1;transition:opacity .4s}
-.cal-wait{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--muted);font-size:14px}
-.loading .cal-wait{display:flex}
-.loading .cal-body iframe{opacity:0}
-.spin{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);border-top-color:var(--gold);animation:spin .9s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:640px){
   #calendar{margin:auto 0 0;width:100%}
-  #calendar .dlg{width:100vw;height:calc(100dvh - 36px);border-radius:18px 18px 0 0}
-  #calendar[open] .dlg{animation:sheetUp .45s var(--soft-e)}
-  .dlg-h{padding:18px 10px 10px 18px;font-size:19px}
-  .dlg-h .grab{display:block;position:absolute;left:50%;top:6px;width:36px;height:5px;margin-left:-18px;border-radius:3px;background:var(--line)}
+  #calendar .dlg{width:100vw;height:calc(100dvh - 36px);border-radius:20px 20px 0 0}
+  .dlg-h .grab{display:block;position:absolute;left:50%;top:6px;width:36px;height:5px;margin-left:-18px;border-radius:3px;background:#e6e1d8}
   .dlg-acts .l{display:none}
-  .dlg-acts a{font-size:16px;padding:6px 10px}
 }
-@keyframes sheetUp{from{transform:translateY(100%)}to{transform:none}}
 
-/* messages use WhatsApp's own type: the system font of each device (SF Pro on iPhone/Mac, Roboto on Android,
-   Segoe UI on Windows), the same stack WhatsApp Web uses. The serif stays for the title, his name and the footer. */
-:root{--wa:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif}
-.msg,.msg .b,.sys,.day,.qr .btn,.compose input,.compose .chips{font-family:var(--wa)}
-.msg .big,.msg .poll .q,.msg .layers b,.msg.case .amt,.msg .pay-b .mt,.msg .price-line b,.msg .map .score span{font-family:var(--wa);letter-spacing:-.01em}
-.msg .big{font-weight:600;font-size:clamp(22px,3vw,30px);line-height:1.2}
-.msg .poll .q{font-weight:600;font-size:clamp(19px,2.2vw,22px);line-height:1.25}
-.msg .layers b{font-weight:600;font-size:17.5px;line-height:1.3}
-.msg.case .amt{font-weight:700;font-size:clamp(28px,3.4vw,34px);letter-spacing:-.02em}
-.msg .price-line b{font-weight:700;font-size:clamp(34px,5vw,44px);letter-spacing:-.03em}
-.msg .pay-b .mt{font-weight:600;font-size:clamp(19px,2.4vw,22px)}
-.sys{font-size:13px;font-weight:500;letter-spacing:0}
-/* every message, and everything inside it (times, amounts' captions, avatars), in WhatsApp's type */
-.msg,.msg *,.sys,.day,.compose,.compose *{font-family:var(--wa)!important}
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
 
-/* entry loader: his photo, a gold ring that closes, then the photo flies to the chat bar (see app.js) */
-.ld .bar,.ld main,.ld .legal{opacity:0}
-.ld main,.ld .bar{animation:ldSafe 0s 2.5s forwards}
+/* entry: his photo inside a gold ring that closes, then the page rises (~1.1 s, never blocks) */
+.ld main,.ld .top{opacity:0}
+.ld main,.ld .top{animation:ldSafe 0s 2.5s forwards}
 @keyframes ldSafe{to{opacity:1}}
-.loader{position:fixed;inset:0;z-index:80;display:grid;place-items:center;background:transparent}
-.ld-who{display:grid;justify-items:center;gap:6px;text-align:center;padding:0 24px}
-.ld-pic{position:relative;width:84px;height:84px;margin-bottom:12px;will-change:transform}
+.loader{position:fixed;inset:0;z-index:80;display:grid;place-items:center;background:var(--bg);pointer-events:none}
+.ld-who{display:grid;justify-items:center;gap:8px;text-align:center}
+.ld-pic{position:relative;width:84px;height:84px;margin-bottom:10px}
 .ld-pic img{width:84px;height:84px;border-radius:50%;object-fit:cover;object-position:50% 30%}
 .ld-pic svg{position:absolute;inset:-8px;width:100px;height:100px;transform:rotate(-90deg)}
-.ld-pic circle{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-dasharray:302;stroke-dashoffset:302;stroke-linecap:round}
-.ld-who b{font-family:var(--serif-d,var(--serif));font-weight:400;font-size:clamp(26px,6vw,34px);color:var(--blue);line-height:1.1;letter-spacing:-.005em}
-.ld-who small{font-size:13px;color:var(--muted)}
+.ld-pic circle{fill:none;stroke:var(--gold);stroke-width:1.4;stroke-dasharray:302;stroke-dashoffset:302;stroke-linecap:round}
+.ld-who b{font-family:var(--serif);font-weight:700;font-size:28px;letter-spacing:.16em}
+.ld-who small{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
 
-/* compose like WhatsApp's: no full-width band, a compact pill floating over the conversation with the round
-   send button beside it. The "le llega a su WhatsApp" note only shows while you type. */
-.compose{background:none;backdrop-filter:none;-webkit-backdrop-filter:none;border-top:0;pointer-events:none;padding:0 0 calc(10px + env(safe-area-inset-bottom))}
-.compose::before{content:"";position:absolute;inset:auto 0 0;height:72px;background:linear-gradient(rgba(246,242,234,0),rgba(246,242,234,.92) 70%);pointer-events:none;z-index:-1}
-.compose .col{pointer-events:none}
-.compose form,.compose .chips{pointer-events:auto}
-.compose form{gap:6px}
-.compose input{min-height:44px;font-size:16px;padding:0 16px;background:#fff;box-shadow:0 1px 1px rgba(11,20,36,.08),0 6px 18px -8px rgba(11,20,36,.22)}
-.compose input:focus{box-shadow:0 0 0 1.5px var(--gold),0 6px 18px -8px rgba(11,20,36,.22)}
-.compose .send{width:44px;height:44px;box-shadow:0 6px 16px -6px rgba(11,20,36,.45)}
-.compose svg{width:18px;height:18px}
-.compose p{position:absolute;left:0;right:0;bottom:calc(100% + 2px);margin:0;font-size:11.5px;opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s;pointer-events:none}
-.compose .col{position:relative}
-.compose:focus-within p{opacity:1;transform:none}
-@media(min-width:900px){.compose .col{max-width:620px}}
+.static .rv{opacity:1;transform:none;transition:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 
-/* v8 · Apple premium, in his colours. Apple's own type (SF Pro Display for titles, SF Pro Text for reading;
-   Inter where there is no SF), tight tracking, near-white warm paper, white surfaces with soft layered shadows,
-   large radii, pill buttons, a gold gradient on the key phrase, messages that arrive with a light blur.
-   ?fuente=caslon brings back the Libre Caslon serif to compare (dev hook). */
-:root{
-  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
-  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
-  --serif:var(--display);--serif-d:var(--display);--sw:600;
-  --wall:#f7f5f1;--card:#fff;--paper-2:#efebe3;--me:#e9e4da;--line:#e4ded3;--muted:#6e6e73;--soft:#a1a1a6;
-  --sh-1:0 1px 2px rgba(11,20,36,.05),0 6px 18px -8px rgba(11,20,36,.12);
-  --sh-2:0 2px 4px rgba(11,20,36,.04),0 18px 40px -18px rgba(11,20,36,.22);
-}
-[data-fuente=caslon]{--serif:"Libre Caslon Text",Georgia,serif;--serif-d:"Libre Caslon Display","Libre Caslon Text",Georgia,serif;--sw:400}
-html{background:var(--wall)}
-body{font-family:var(--sans);letter-spacing:-.011em}
-:root:not([data-fuente]) :is(.title h1,.legal span:first-child,.dlg-h,.ld-who b,.sheet h1,.sheet h2,.sheet h3,.capital b,.score .s,.quote){letter-spacing:-.028em;font-weight:600}
+/* fixes after the first QA pass */
+body{font-variant-numeric:lining-nums}
+.ph img{aspect-ratio:4/5;object-position:50% 72%}
+@media(min-width:760px){.proof{grid-template-columns:.9fr 1.1fr}.ph img{height:100%;max-height:460px;aspect-ratio:auto}}
+@media(min-width:760px){.ftabs{flex-wrap:wrap;justify-content:center;overflow:visible}}
+.f-l span{padding:6px 0}
+@media(max-width:400px){.pill{font-size:10.5px;letter-spacing:.05em}}
+.sum-pay,.wa{padding:10px 2px 4px}
+.ph img{aspect-ratio:1/1;object-position:50% 90%}
+@media(min-width:760px){.ph img{aspect-ratio:auto;object-position:50% 82%}}
+@media(max-width:759px){.ph img{height:auto}}
+@media(max-width:759px){.ph img{object-position:50% 68%}}
 
-/* hero: centred, big, Apple tracking; the key phrase in a gold gradient */
-.title{text-align:center;padding:44px 0 10px}
-.title h1{font-size:clamp(40px,10.4vw,84px);line-height:1.04;color:var(--blue)}
-.title mark{background:linear-gradient(100deg,#7a5c2e 0%,#c4a062 46%,#8e6f3c 92%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.title p{margin:16px auto 0;font-size:clamp(17px,2vw,21px);line-height:1.45;color:var(--muted);max-width:620px;letter-spacing:-.015em}
-@media(min-width:900px){.title{padding:96px 0 26px}.title h1{font-size:clamp(64px,6.4vw,88px)}}
-
-/* surfaces: white, soft layered shadows, larger radii */
-.b{border-radius:22px 22px 22px 7px;box-shadow:var(--sh-1);background:var(--card)}
-.you .b{border-radius:22px 22px 7px 22px;box-shadow:none}
-.g .b{background:linear-gradient(180deg,#16223a 0%,#0b1424 60%);box-shadow:0 1px 2px rgba(11,20,36,.2),0 14px 30px -16px rgba(11,20,36,.55)}
-.wide .b,.b.poll,.b.faqb,.b.vid,.b.photo{border-radius:26px 26px 26px 8px}
-.vframe,.photo img{border-radius:20px}
-.case .b{border-radius:24px!important;box-shadow:var(--sh-2)!important}
-.chat{gap:8px}
-.msg+.msg{margin-top:0}
-.day{font-size:12px;letter-spacing:0;color:var(--soft);font-weight:500}
-.sys::before,.sys::after{background:linear-gradient(90deg,transparent,var(--gold))}
-.sys::after{background:linear-gradient(90deg,var(--gold),transparent)}
-
-/* pills */
-.btn{border-radius:999px;min-height:48px;padding:0 24px;font-weight:500;font-size:15.5px;letter-spacing:-.01em;box-shadow:0 1px 2px rgba(11,20,36,.12),0 8px 20px -10px rgba(11,20,36,.4)}
-.btn.y{background:linear-gradient(180deg,#e3cb98,#d2b479);box-shadow:0 1px 2px rgba(11,20,36,.1),0 8px 20px -10px rgba(142,111,60,.6)}
-.btn.ghost{box-shadow:inset 0 0 0 1px rgba(11,20,36,.25)}
-.b .btn.ghost{box-shadow:inset 0 0 0 1px rgba(216,189,134,.5)}
-.b.pay-b .btn.ghost{box-shadow:inset 0 0 0 1px rgba(11,20,36,.25)}
-
-/* messages arrive with a light blur, like Apple's reveals */
-.msg{filter:blur(6px);transition:opacity .45s,transform .7s var(--spring),filter .5s ease}
-.msg.in{filter:none}
-.static .msg{filter:none!important}
-@media (prefers-reduced-motion:reduce){.msg{filter:none}}
-
-/* loader and footer in the same type */
-.ld-who b{font-weight:600}
-.legal{border-top:0;padding-top:28px}
-.legal span:first-child{font-size:17px}
-
-/* documents opened from the chat */
-.sheet{border-radius:28px;box-shadow:var(--sh-2)}
-.dlg{border-radius:26px}
-.bar .btn.book{min-height:32px;height:32px;padding:0 14px;font-size:13px;box-shadow:none}
-@media(max-width:430px){.bar .btn.book{padding:0 14px}}
-.b .btn{max-width:100%;white-space:normal;text-align:center;line-height:1.2;padding-block:12px}
-/* the slim header pill keeps a 44px touch area */
-.bar .btn.book,.bar .ic{position:relative}
-.bar .btn.book::after,.bar .ic::after{content:"";position:absolute;inset:-6px -3px}
+/* v9.1 · sin rojos difuminados: fondo noche liso, el vino como color sólido (botones, filetes) y el oro en filetes finos,
+   sin brillos ni sombras rojizas. Más despacho que embudo. */
+body{background:var(--bg)}
+.vframe{box-shadow:0 0 0 1px var(--line),0 24px 50px -30px rgba(0,0,0,.9)}
+.cta,.cta-s,.play span{background:var(--wine);color:var(--cream);box-shadow:inset 0 0 0 1px rgba(216,189,134,.55),inset 0 1px 0 rgba(255,255,255,.08)}
+.cta:hover,.cta-s:hover{filter:none;background:#9a3541}
+.cta small{color:var(--gold);opacity:1}
+.cta span{letter-spacing:.06em}
+.cta{border-radius:10px}
+.cta-s{border-radius:8px}
+.play svg{fill:var(--cream)}
+.play{background:linear-gradient(transparent 50%,rgba(7,12,22,.5))}
+.hero h1 em{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--gold)}
+.pill{border-radius:6px}
+.pill i{background:var(--wine);box-shadow:none;border-radius:1px}
+.o-n{color:var(--gold2)}
+.offer{border-radius:12px;background:var(--panel);box-shadow:0 0 0 1px var(--line)}
+.offer::before{content:"";display:block;width:40px;height:1px;background:var(--gold);margin:0 auto 12px}
+.heard li{background:var(--panel);box-shadow:inset 0 0 0 1px var(--line2);border-left:3px solid var(--wine);border-radius:4px 10px 10px 4px;color:var(--cream)}
+.sum{background:var(--panel);box-shadow:0 0 0 1px var(--line);border-radius:16px}
+.sum::before{content:"";display:block;width:56px;height:1px;background:var(--gold);margin:0 auto 18px}
+.mcard{background:var(--panel);box-shadow:0 0 0 1px var(--line);border-radius:14px;border-top:3px solid var(--wine)}
+.tag{background:transparent;color:var(--gold);box-shadow:inset 0 0 0 1px var(--line);border-radius:4px}
+.seal{background:var(--bg2);color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold),0 0 0 4px var(--bg2),0 0 0 5px var(--line)}
+.ftab.is-on{background:var(--wine);color:var(--cream);box-shadow:inset 0 0 0 1px rgba(216,189,134,.55)}
+.fgroup details[open] summary::after{background:var(--wine);color:var(--cream)}
+.k{color:var(--gold2)}
 
 </style>
 <script>
@@ -827,128 +657,200 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=905320101996930&ev=PageView&noscript=1"></noscript>
 </head>
 <body>
-<a class="skip" href="#chat">Saltar a la conversación</a>
+<a class="skip" href="#oferta">Saltar a la oferta</a>
 
-<header class="bar">
-  <div class="col">
-    <a class="me" href="#portada" aria-label="Gianfranco Bringas, inicio"><span class="pic"><img src="assets/img/gianfranco-cara.jpg" alt="" width="46" height="46"><i aria-hidden="true"></i></span>
-      <span class="who"><b>Gianfranco Bringas</b><small><span class="role">Abogado · litigio y protección patrimonial</span><span class="st" id="st" aria-live="polite">responde de 8 a. m. a 10 p. m.</span></small></span></a>
-    <nav class="links" aria-label="Secciones"><a href="#metodo">Cómo funciona</a><a href="#casos">Casos</a><a href="#gianfranco">Quién soy</a><a href="#precio">Precio</a><a href="#preguntas">Preguntas</a></nav>
-    <nav class="acts" aria-label="Acciones">
-      <button class="ic" type="button" data-play-vsl aria-label="Ver su video, 9:55" title="Ver su video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5A2 2 0 0 1 5.5 5.5h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2zM15.5 10.2l4.3-2.6a.6.6 0 0 1 .9.5v7.8a.6.6 0 0 1-.9.5l-4.3-2.6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></button>
-      <a class="ic" href="tel:+51992878215" aria-label="Llamar al +51 992 878 215" title="Llamar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.8h2.6l1.4 3.6-1.8 1.2a11 11 0 0 0 6.6 6.6l1.2-1.8 3.6 1.4v2.6a1.8 1.8 0 0 1-1.9 1.8A15.8 15.8 0 0 1 4.8 5.7a1.8 1.8 0 0 1 1.8-1.9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a>
-      <button class="ic more" type="button" aria-label="Secciones" aria-haspopup="true" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5.5" r="1.9" fill="currentColor"/><circle cx="12" cy="12" r="1.9" fill="currentColor"/><circle cx="12" cy="18.5" r="1.9" fill="currentColor"/></svg></button>
-      <button class="btn book" type="button" data-book><span>Reservar</span><em>US$97</em></button>
-    </nav>
-    <div class="menu" id="menu" role="menu" hidden>
-      <a role="menuitem" href="#vsl">Ver su video <small>9:55</small></a>
-      <a role="menuitem" href="#encuesta">¿Cuáles te hicieron?</a>
-      <a role="menuitem" href="#metodo">Cómo funciona</a>
-      <a role="menuitem" href="#casos">Casos reales</a>
-      <a role="menuitem" href="#testimonios">Testimonios</a>
-      <a role="menuitem" href="#gianfranco">Quién soy</a>
-      <a role="menuitem" href="#precio">Precio y garantía</a>
-      <a role="menuitem" href="#preguntas">Preguntas</a>
-    </div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="ESCUDIA, inicio"><b>ESCUDIA</b><small>Gianfranco Bringas · abogado</small></a>
+    <p class="strip"><span>Revisión de tu decisión por</span> <b>US$97</b> <span>· garantía del 100 %</span></p>
+    <button class="cta-s" type="button" data-book>Revisar mi caso <span aria-hidden="true">→</span></button>
   </div>
 </header>
 
-<main class="col" id="portada">
-  <section class="title">
-    <h1>Ganar dinero cuesta años. <mark>Perderlo, una sola decisión.</mark></h1>
-    <p>ESCUDIA revisa tu decisión de dinero (antes, durante o después) y te dice qué hacer. Lo revisa, lo valida y lo firma un abogado.</p>
+<main id="inicio">
+
+  <!-- hero -->
+  <section class="hero">
+    <div class="wrap hero-g">
+      <div class="hero-t">
+        <p class="pill"><i></i>Antes de comprar, invertir, prestar o asociarte</p>
+        <h1>Analizo toda tu decisión para que sea <em>difícil que pierdas tu dinero.</em></h1>
+        <p class="lead">En cualquier compra, inversión, préstamo o sociedad: antes, durante o después. Ves lo que no estás viendo, cuánto te puede costar y qué hacer. Lo reviso, lo valido y lo firmo yo, como abogado.</p>
+      </div>
+      <figure class="vsl" id="vsl">
+        <div class="vframe">
+          <img src="assets/img/vsl-poster.jpg" alt="Gianfranco Bringas en su oficina" width="1600" height="900">
+          <button class="play" type="button" aria-label="Reproducir el video de 9 minutos 55 segundos"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17l14-8.5z"/></svg></span></button>
+          <video playsinline preload="none" data-src="https://assets.cdn.filesafe.space/86fnZV8tMcYdaY5QZ5NT/media/6ab4a1798d8128ee4cbad768.mp4" hidden></video>
+        </div>
+        <figcaption><b>Mira esto antes de pagar</b><span>9:55 · con subtítulos</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="wrap">
+      <div class="offer" id="oferta">
+        <p class="o-k">Informe de tu decisión + 20 minutos conmigo</p>
+        <p class="o-p"><b>US$97</b><span>/ S/330</span></p>
+        <p class="o-n">Te lo entrego en 3 días de atención · firmado por abogado</p>
+      </div>
+      <div class="cta-w">
+        <button class="cta" type="button" data-book><span>Quiero revisar mi decisión <i aria-hidden="true">→</i></span><small>Eliges horario · pagas · garantía del 100 %</small></button>
+      </div>
+    </div>
   </section>
 
-  <section class="chat" id="chat" role="log" aria-label="Conversación con Gianfranco Bringas">
-    <span class="day">Hoy</span>
+  <!-- his story + real numbers -->
+  <section class="sec story">
+    <div class="wrap narrow">
+      <blockquote>“Casi $600,000 perdió mi familia en una inversión que parecía perfecta.”</blockquote>
+      <p>Soy abogado especialista en protección patrimonial y desde 2010 defiendo a personas a las que les hicieron creer en inversiones, criptomonedas, fondos digitales y negocios que prometían libertad financiera, o a las que les incumplieron.</p>
+    </div>
+    <div class="wrap">
+      <div class="facts">
+        <div><b>2010</b><span>desde que defiendo patrimonios</span></div>
+        <div><b>+20</b><span>afectados de Ergo Capital que represento</span></div>
+        <div><b>12</b><span>riesgos que reviso en cada decisión</span></div>
+      </div>
+      <div class="proof">
+        <figure class="ph"><img src="assets/gianfranco-radio.jpeg" alt="Gianfranco Bringas en un set de televisión" loading="lazy" width="1125" height="1500"><figcaption>Gianfranco Bringas · abogado</figcaption></figure>
+        <div class="creds">
+          <a href="cobertura-ergo-capital.html"><small>2025 · prensa</small><b>Ergo Capital en Hildebrandt en sus trece</b><span>Abogado de parte en el proceso penal →</span></a>
+          <a href="https://isbn.bnp.gob.pe/catalogo.php?mode=detalle&amp;nt=62803" target="_blank" rel="noopener"><small>2013 · Gaceta Jurídica</small><b>Manual sobre faltas disciplinarias laborales</b><span>Autor ↗</span></a>
+          <a href="https://es.scribd.com/document/1055550508/Aplicacion-Supletoria-de-Civil-en-Laboral-2012" target="_blank" rel="noopener"><small>2012</small><b>Aplicación supletoria de normas civiles en las relaciones laborales</b><span>Autor ↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- what they tell you -->
-    <div class="msg them intro"><span class="av" aria-hidden="true">?</span><div class="b"><span class="name">Lo que te dicen</span>Rentabilidad garantizada.<time>9:41</time></div></div>
-    <div class="msg them intro"><span class="av ghost"></span><div class="b">Solo hoy.<time>9:41</time></div></div>
-    <div class="msg them intro"><span class="av ghost"></span><div class="b">Confía en mí.<time>9:42</time></div></div>
-    <div class="msg them intro"><span class="av ghost"></span><div class="b">Para retirar lo tuyo, falta un último depósito.<time>9:42</time></div></div>
-    <span class="sys">Gianfranco Bringas se unió a la conversación</span>
+  <!-- pain -->
+  <section class="sec pain">
+    <div class="wrap narrow">
+      <p class="k">¿Te identificas con esto?</p>
+      <h2>Justo ahora podrías estar escuchando…</h2>
+      <ul class="heard">
+        <li>«Rentabilidad garantizada.»</li>
+        <li>«Solo hoy.»</li>
+        <li>«Confía en mí.»</li>
+        <li>«Para retirar lo tuyo, falta un último depósito.»</li>
+      </ul>
+      <h3>¿Te suena familiar?</h3>
+      <p class="pain-p">La prisa existe para que no revises nada. Te dejan ganar un poco para que confíes cuando piden todo. Y cuando te lo recomienda alguien de confianza, nadie revisa el contrato. <b>Así se pierde lo que costó años ganar.</b></p>
+    </div>
+  </section>
 
-    <!-- VSL, right after -->
-    <div class="msg g wide"><img class="av" src="assets/img/gianfranco-cara.jpg" alt=""><div class="b vid"><span class="name" style="padding:4px 10px 6px">Gianfranco Bringas · abogado</span>
-      <div class="vframe" id="vsl"><img src="assets/img/vsl-poster.jpg" alt="Gianfranco Bringas en su oficina" width="1600" height="900"><button class="p" type="button" aria-label="Reproducir el video de 9 minutos 55 segundos"><span><svg viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></svg></span></button><span class="len">▶ 9:55 · con subtítulos</span><video playsinline preload="none" data-src="https://assets.cdn.filesafe.space/86fnZV8tMcYdaY5QZ5NT/media/6ab4a1798d8128ee4cbad768.mp4" hidden></video></div>
-      <p class="cap"><span>Mira esto antes de pagar.</span><time>9:43</time></p></div></div>
+  <!-- what you get -->
+  <section class="sec gets">
+    <div class="wrap narrow">
+      <h2>Antes de mover tu dinero, vas a saber:</h2>
+      <ul class="checks">
+        <li><b>Lo que no estás viendo:</b> dónde puedes perder y por qué.</li>
+        <li><b>Cuánto te puede costar</b> si sale mal.</li>
+        <li><b>Qué papeles pedir</b> y qué te cuesta no tenerlos.</li>
+        <li><b>Qué preguntarle a la otra parte</b> antes de pagar o firmar.</li>
+        <li><b>Tu estrategia:</b> qué hacer primero y qué evitar.</li>
+        <li><b>20 minutos conmigo</b> para revisarlo juntos.</li>
+      </ul>
+      <p class="gold-line">Un abogado común revisa el contrato: 1 riesgo. Yo reviso los 12 de tu decisión, desde lo legal hasta lo psicológico.</p>
+      <div class="cta-w"><button class="cta" type="button" data-book><span>Revisar mi decisión por US$97 <i aria-hidden="true">→</i></span><small>Garantía de devolución del 100 %</small></button></div>
+    </div>
+  </section>
 
-    <div class="msg g"><span class="av ghost"></span><div class="b big">Casi <mark>$600,000</mark> perdió mi familia en una inversión que parecía perfecta.<time>9:43</time></div></div>
+  <!-- by moment, with real cases -->
+  <section class="sec moments" id="casos">
+    <div class="wrap">
+      <p class="k c">Según tu momento</p>
+      <h2 class="c">Sirve antes, durante y después de <em>decidir</em></h2>
+      <div class="mcards">
+        <article class="mcard">
+          <p class="tag">Antes</p>
+          <h3>Vas a comprar, invertir, prestar o asociarte</h3>
+          <p>Te digo si sigues y cómo: qué falta verificar, qué pedir y qué cláusulas te dejan expuesto antes de pagar o firmar.</p>
+          <div class="case"><p class="cs-k">Caso real · compra inmobiliaria</p><p class="cs-a">≈US$95K <small>en juego</small></p><p><span class="h">Hallazgo</span>El vendedor no figuraba como titular vigente.</p><p><span class="r">Ruta</span>Frenar el pago final hasta comprobar y corregir la titularidad.</p></div>
+        </article>
+        <article class="mcard">
+          <p class="tag">Durante</p>
+          <h3>Algo cambió: ¿sigues pagando o te detienes?</h3>
+          <p>Te digo dónde estás parado y cómo protegerte: qué documentar hoy y cómo actuar.</p>
+          <div class="case"><p class="cs-k">Caso real · inversión online al 14 % mensual</p><p class="cs-a">US$18.000 <small>comprometidos</small></p><p><span class="h">Hallazgo</span>La plataforma no acreditaba autorización ni una actividad verificable.</p><p><span class="r">Ruta</span>Tres acciones inmediatas para documentar la posición jurídica.</p></div>
+        </article>
+        <article class="mcard">
+          <p class="tag">Después</p>
+          <h3>Ya ocurrió y necesitas decidir qué hacer</h3>
+          <p>Te digo qué camino te queda: qué pruebas tienes, qué falta y por dónde empezar.</p>
+          <div class="case"><p class="cs-k">Caso real · préstamo privado</p><p class="cs-a">US$40.000 <small>prestados</small></p><p><span class="h">Hallazgo</span>La vivienda prometida como garantía ya se había vendido.</p><p><span class="r">Ruta</span>Se identificó un vehículo del deudor para evaluar una vía de cobro.</p></div>
+        </article>
+      </div>
+      <p class="note-c">Casos reenviados con identidad protegida.</p>
+      <div class="cta-w"><button class="cta" type="button" data-book><span>Quiero revisar mi caso <i aria-hidden="true">→</i></span><small>Solo tomo 7 casos nuevos por semana</small></button></div>
+    </div>
+  </section>
 
-    <!-- poll 1: tactics -->
-    <div class="msg g wide" id="encuesta"><span class="av ghost"></span><div class="b poll" role="group" aria-labelledby="pq1">
-      <p class="q" id="pq1">¿Cuáles de estas te hicieron?</p><p class="hint">Encuesta · puedes marcar varias</p>
-      <button class="opt" type="button" aria-pressed="false" data-sig="Me apuraron para que no revisara nada"><span class="ck"><svg viewBox="0 0 14 14"><path d="M3 7.3l2.6 2.6L11 4.4" fill="none" stroke="#0f1420" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>La prisa existe para que no revises nada.</button>
-      <button class="opt" type="button" aria-pressed="false" data-sig="Me dejaron ganar un poco antes de pedirme todo"><span class="ck"><svg viewBox="0 0 14 14"><path d="M3 7.3l2.6 2.6L11 4.4" fill="none" stroke="#0f1420" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Te dejan ganar un poco para que confíes cuando piden todo.</button>
-      <button class="opt" type="button" aria-pressed="false" data-sig="Me pesó el miedo a quedarme fuera"><span class="ck"><svg viewBox="0 0 14 14"><path d="M3 7.3l2.6 2.6L11 4.4" fill="none" stroke="#0f1420" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>El miedo a quedarte fuera pesa más que los números.</button>
-      <button class="opt" type="button" aria-pressed="false" data-sig="Me pidieron un último depósito para recuperar"><span class="ck"><svg viewBox="0 0 14 14"><path d="M3 7.3l2.6 2.6L11 4.4" fill="none" stroke="#0f1420" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Cuando quieres recuperar lo perdido, te piden un último depósito.</button>
-      <button class="opt" type="button" aria-pressed="false" data-sig="Me lo recomendó alguien de confianza y nadie revisó el contrato"><span class="ck"><svg viewBox="0 0 14 14"><path d="M3 7.3l2.6 2.6L11 4.4" fill="none" stroke="#0f1420" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Te lo recomendó alguien de confianza. Por eso nadie revisó el contrato.</button>
-      <button class="opt" type="button" aria-pressed="false" data-sig="Me convenció la autoridad de quien lo ofrecía"><span class="ck"><svg viewBox="0 0 14 14"><path d="M3 7.3l2.6 2.6L11 4.4" fill="none" stroke="#0f1420" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>La autoridad también se fabrica.</button>
-      <div class="poll-foot"><span aria-live="polite"><b id="nSig">0</b> de 6 · se envía con tu mensaje</span></div>
-      <time>9:44</time></div></div>
-
-    <!-- poll 2: moment -->
-    <div class="msg g wide"><span class="av ghost"></span><div class="b poll" role="radiogroup" aria-labelledby="pq2">
-      <p class="q" id="pq2">¿En qué momento estás?</p><p class="hint">Encuesta · una opción</p>
-      <button class="opt" type="button" role="radio" aria-checked="false" data-mom="Estoy por decidir"><span class="ck"><svg viewBox="0 0 14 14"><path d="M3 7.3l2.6 2.6L11 4.4" fill="none" stroke="#0f1420" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Antes.</b> Voy a comprar, invertir, prestar o asociarme.</span></button>
-      <button class="opt" type="button" role="radio" aria-checked="false" data-mom="Ya pagué y algo cambió"><span class="ck"><svg viewBox="0 0 14 14"><path d="M3 7.3l2.6 2.6L11 4.4" fill="none" stroke="#0f1420" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Durante.</b> Algo cambió: ¿sigo pagando o me detengo?</span></button>
-      <button class="opt" type="button" role="radio" aria-checked="false" data-mom="Ya perdí dinero"><span class="ck"><svg viewBox="0 0 14 14"><path d="M3 7.3l2.6 2.6L11 4.4" fill="none" stroke="#0f1420" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Después.</b> Ya ocurrió y necesito decidir qué hacer.</span></button>
-      <time>9:44</time></div></div>
-
-    <!-- method -->
-    <div class="msg g"><span class="av ghost"></span><div class="b" id="metodo">Un abogado revisa el contrato: 1 riesgo. Yo reviso los <b>12</b> de tu decisión, desde lo legal hasta lo psicológico, y te digo qué hacer:
-      <div class="layers"><div><b>Lo que no estás viendo</b><small>Dónde puedes perder, por qué y cuánto te puede costar.</small></div><div><b>Qué papeles pedir</b><small>Qué te falta, qué te cuesta no tenerlo y qué preguntarle a la otra parte.</small></div><div><b>Tu estrategia</b><small>Qué hacer primero y qué evitar.</small></div></div><time>9:45</time></div></div>
-
-    <!-- the report as attachment -->
-    <div class="msg g"><span class="av ghost"></span><div class="b">El caso más grande que llevo hoy es Ergo Capital: <a href="cobertura-ergo-capital.html">represento a más de 20 afectados</a> en el proceso penal.<br>Así trabajo cada informe: si un dato no está en tus documentos, el informe dice «falta verificar». Lo reviso, lo valido y lo firmo yo.<time>9:45</time></div></div>
-
-    <!-- cases as forwarded -->
-    <div class="msg you"><div class="b">¿Y en casos como el mío?<time>9:46 ✓✓</time></div></div>
-    <div class="msg g case" id="casos"><span class="av ghost"></span><div class="b" style="background:#fff;color:var(--ink)"><p class="fwd">↪ Reenviado · identidad protegida</p><p class="k">Antes · compra inmobiliaria</p><p class="amt">≈US$95K<small>en juego</small></p><div class="hr"><p><span class="lvl l-red">Hallazgo</span>El vendedor no figuraba como titular vigente.</p><p><span class="lvl l-green">Ruta</span>Frenar el pago final hasta comprobar y corregir la titularidad.</p></div><time>9:46</time></div></div>
-    <div class="msg g case"><span class="av ghost"></span><div class="b" style="background:#fff;color:var(--ink)"><p class="fwd">↪ Reenviado · identidad protegida</p><p class="k">Durante · mentoría financiera</p><p class="amt">US$2.000<small>aún por pagar</small></p><div class="hr"><p><span class="lvl l-red">Hallazgo</span>No había entregables ni una política de reembolso claros.</p><p><span class="lvl l-green">Ruta</span>Documentar lo ofrecido y exigir respuesta por escrito antes de pagar.</p></div><time>9:46</time></div></div>
-    <div class="msg g case"><span class="av ghost"></span><div class="b" style="background:#fff;color:var(--ink)"><p class="fwd">↪ Reenviado · identidad protegida</p><p class="k">Durante · inversión online al 14% mensual</p><p class="amt">US$18.000<small>comprometidos</small></p><div class="hr"><p><span class="lvl l-red">Hallazgo</span>La plataforma no acreditaba autorización ni una actividad verificable.</p><p><span class="lvl l-green">Ruta</span>Tres acciones inmediatas para documentar la posición jurídica.</p></div><time>9:47</time></div></div>
-    <div class="msg g case"><span class="av ghost"></span><div class="b" style="background:#fff;color:var(--ink)"><p class="fwd">↪ Reenviado · identidad protegida</p><p class="k">Después · préstamo privado</p><p class="amt">US$40.000<small>prestados</small></p><div class="hr"><p><span class="lvl l-red">Hallazgo</span>La vivienda prometida como garantía ya se había vendido.</p><p><span class="lvl l-green">Ruta</span>Se identificó un vehículo del deudor para evaluar una vía de cobro.</p></div><time>9:47</time></div></div>
-    <div class="msg g case"><span class="av ghost"></span><div class="b" style="background:#fff;color:var(--ink)"><p class="fwd">↪ Reenviado · identidad protegida</p><p class="k">Después · herencia familiar</p><p class="amt">Casa<small>familiar</small></p><div class="hr"><p><span class="lvl l-red">Hallazgo</span>La sucesión estaba pendiente y un heredero controlaba el inmueble.</p><p><span class="lvl l-green">Ruta</span>Formalizar a los herederos, documentar la copropiedad y negociar el uso.</p></div><time>9:47</time></div></div>
-
-    <!-- testimonials as video notes -->
-    <div class="msg g wide" id="testimonios"><img class="av" src="assets/img/gianfranco-cara.jpg" alt=""><div class="b">Mejor escúchalos a ellos:
+  <!-- testimonials -->
+  <section class="sec voices" id="testimonios">
+    <div class="wrap">
+      <h2 class="c">Mejor escúchalos a ellos</h2>
       <div class="notes">
         <button class="note" type="button" data-wistia="pndwyucmm8" aria-label="Testimonio 1, 11 segundos"><img src="assets/img/testimonio-01.jpg" alt="" loading="lazy" width="720" height="1290"><span>▶ 0:11</span></button>
         <button class="note" type="button" data-wistia="ht16835j8f" aria-label="Testimonio 2, 13 segundos"><img src="assets/img/testimonio-02.jpg" alt="" loading="lazy" width="720" height="1296"><span>▶ 0:13</span></button>
         <button class="note" type="button" data-wistia="g1f2wse3i1" aria-label="Testimonio 3, 13 segundos"><img src="assets/img/testimonio-03.jpg" alt="" loading="lazy" width="720" height="1280"><span>▶ 0:13</span></button>
         <button class="note" type="button" data-wistia="u66ymyuyq6" aria-label="Testimonio 4, 16 segundos"><img src="assets/img/testimonio-04.jpg" alt="" loading="lazy" width="720" height="960"><span>▶ 0:16</span></button>
         <button class="note" type="button" data-wistia="os8gk0jf4j" aria-label="Testimonio 5, 1 minuto 26 segundos"><img src="assets/img/testimonio-05.jpg" alt="" loading="lazy" width="720" height="1296"><span>▶ 1:26</span></button>
-      </div><time>9:48</time></div></div>
-
-    <!-- about -->
-    <div class="msg you"><div class="b">¿Y quién eres tú?<time>9:49 ✓✓</time></div></div>
-    <div class="msg g wide" id="gianfranco"><img class="av" src="assets/img/gianfranco-cara.jpg" alt=""><div class="b photo"><img src="assets/gianfranco-radio.jpeg" alt="Gianfranco Bringas en un set de televisión" loading="lazy" width="1125" height="1500">
-      <div class="cap">Soy abogado especialista en protección patrimonial. Desde 2010 defiendo a personas a las que les hicieron creer en inversiones, criptomonedas, fondos digitales y negocios que prometían libertad financiera, o a las que les incumplieron.
-        <div class="books">
-          <a href="https://es.scribd.com/document/1055550508/Aplicacion-Supletoria-de-Civil-en-Laboral-2012" target="_blank" rel="noopener"><span>Aplicación supletoria de normas civiles en las relaciones laborales</span><b>2012 ↗</b></a>
-          <a href="https://isbn.bnp.gob.pe/catalogo.php?mode=detalle&amp;nt=62803" target="_blank" rel="noopener"><span>Manual sobre faltas disciplinarias laborales · Gaceta Jurídica</span><b>2013 ↗</b></a>
-          <a href="cobertura-ergo-capital.html"><span>Ergo Capital en Hildebrandt en sus trece · abogado de parte</span><b>2025</b></a>
-        </div><time>9:49</time></div></div></div>
-
-    <!-- price -->
-    <div class="msg you"><div class="b">¿Cuánto cuesta?<time>9:50 ✓✓</time></div></div>
-    <div class="msg g" id="precio"><span class="av ghost"></span><div class="b"><span class="big">US$97 <span style="font-size:.55em;opacity:.7">/ S/330</span></span><br>Ves lo que no estás viendo, cuánto te puede costar y qué hacer: qué papeles pedir y cuál es tu estrategia. Lo reviso, lo valido y lo firmo yo.<br>Te lo entrego en 3 días de atención + 20 minutos conmigo para revisarlo juntos.<time>9:50</time></div></div>
-    <div class="msg g"><span class="av ghost"></span><div class="b">Y te lo digo de entrada: si no encuentro ningún riesgo que tú no hubieras visto ya por tu cuenta, <mark>te devuelvo el 100 %</mark>. Antes me anotas los riesgos que ya conoces, y puedes pedirla hasta el final de nuestros 20 minutos.<time>9:50</time></div></div>
-    <div class="msg g"><span class="av ghost"></span><div class="b">Solo tomo 7 casos nuevos por semana. Primero eliges horario, después pagas y me envías el comprobante por WhatsApp. Tus documentos van por un formulario, no por WhatsApp.<time>9:51</time></div></div>
-    <div class="qr"><button class="btn y" type="button" data-book>Elegir mi horario</button><a class="btn ghost" href="pago.html">Ya reservé, pagar</a></div>
-
-    <!-- faq -->
-    <div class="msg you"><div class="b">¿Y si mi caso es otro?<time>9:52 ✓✓</time></div></div>
-    <div class="msg g wide" id="preguntas"><span class="av ghost"></span><div class="b faqb">Estas son las preguntas que más me hacen. El foco son inmuebles e inversiones; también préstamos, negocios, herencias y divorcios.
-      <div class="ftabs" role="tablist" aria-label="Categorías">
-        <button class="ftab is-on" role="tab" data-g="0">Inversiones<small>5</small></button>
-        <button class="ftab" role="tab" data-g="1">Compras y contratos<small>5</small></button>
-        <button class="ftab" role="tab" data-g="2">Dinero y presión<small>5</small></button>
-        <button class="ftab" role="tab" data-g="3">Empresas<small>5</small></button>
-        <button class="ftab" role="tab" data-g="4">Herencias y divorcios<small>1</small></button>
-        <button class="ftab" role="tab" data-g="5">Sobre el servicio<small>7</small></button>
       </div>
+    </div>
+  </section>
+
+  <!-- stack -->
+  <section class="sec stack" id="precio">
+    <div class="wrap">
+      <div class="sum">
+        <p class="sum-b">ESCUDIA</p>
+        <p class="sum-s">Primero criterio. Después decisión.</p>
+        <h2>Súmalo:</h2>
+        <p class="sum-l">Esto es exactamente lo que recibes:</p>
+        <ul>
+          <li>Revisión de los 12 riesgos de tu decisión</li>
+          <li>Lo que no estás viendo y cuánto te puede costar</li>
+          <li>Qué papeles pedir y qué preguntarle a la otra parte</li>
+          <li>Tu estrategia: qué hacer primero y qué evitar</li>
+          <li>Informe firmado por abogado en 3 días de atención</li>
+          <li>Sesión 1 a 1 de 20 minutos conmigo</li>
+          <li>Garantía de devolución del 100 %</li>
+        </ul>
+        <p class="sum-t"><span>Todo por</span><b>US$97</b><span>/ S/330</span></p>
+        <button class="cta" type="button" data-book><span>Elegir mi horario <i aria-hidden="true">→</i></span><small>Primero eliges horario, después pagas</small></button>
+        <a class="sum-pay" href="pago.html">Ya reservé, quiero pagar →</a>
+      </div>
+
+      <div class="guar">
+        <div class="seal" aria-hidden="true"><b>100%</b><small>Garantía</small></div>
+        <div>
+          <h3>Si no encuentro ningún riesgo que tú no hubieras visto, te devuelvo el 100 %.</h3>
+          <p>Para que sea justo para los dos: antes de empezar me anotas los riesgos que ya conoces, y puedes pedir la devolución hasta el final de nuestros 20 minutos.</p>
+        </div>
+      </div>
+
+      <ol class="steps">
+        <li><b>Eliges tu horario</b><span>En el calendario, en un minuto.</span></li>
+        <li><b>Pagas y me envías el comprobante</b><span>Por Yape, tarjeta, PayPal o transferencia BCP.</span></li>
+        <li><b>Me envías tus documentos</b><span>Por un formulario, no por WhatsApp. En 3 días de atención tienes tu informe.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- faq -->
+  <section class="sec faq" id="preguntas">
+    <div class="wrap narrow">
+      <h2 class="c">Preguntas frecuentes</h2>
+      <p class="faq-l">El foco son inmuebles e inversiones; también préstamos, negocios, herencias y divorcios.</p>
+      <div class="ftabs" role="tablist" aria-label="Categorías">
+        <button class="ftab is-on" role="tab" data-g="0">Inversiones</button>
+        <button class="ftab" role="tab" data-g="1">Compras y contratos</button>
+        <button class="ftab" role="tab" data-g="2">Dinero y presión</button>
+        <button class="ftab" role="tab" data-g="3">Empresas</button>
+        <button class="ftab" role="tab" data-g="4">Herencias y divorcios</button>
+        <button class="ftab" role="tab" data-g="5">Sobre el servicio</button>
+      </div>
+      <div class="fbox">
       <div class="fgroup" data-g="0">
         <p>Preventa y terrenos · préstamos privados · socios y franquicias · trading y cripto · mentorías financieras</p>
         <details><summary>Inversiones inmobiliarias: ¿preventa, terreno o constructora que no entrega?</summary><p>Compra de vivienda, terrenos, preventas y proyectos mediante fideicomisos. Revisamos plazos incumplidos, condiciones de pago, posibles cláusulas abusivas, problemas registrales y la documentación de la operación.</p><p>Si estás por pagar o ya entregaste dinero, analizamos qué verificar, qué exigir y qué alternativas evaluar frente a retrasos o incumplimientos.</p></details>
@@ -996,22 +898,26 @@ fbq('track', 'PageView');
         <details><summary>¿Cómo funciona la garantía de devolución del 100%?</summary><p>Si no encuentro ningún riesgo que tú no hubieras visto ya por tu cuenta, te devuelvo el 100 %. Para que sea justo para los dos: antes de empezar me anotas los riesgos que ya conoces, y puedes pedir la devolución hasta el final de la sesión de 20 minutos. Un punto que diga «falta verificar» no cuenta como riesgo encontrado.</p><p>La garantía corresponde al importe del servicio Escudia.</p></details>
       </div>
 
-      <time>9:52</time></div></div>
-
-    <div class="msg g" id="solicitar"><img class="av" src="assets/img/gianfranco-cara.jpg" alt=""><div class="b big">¿Vas a decidir? Te digo si sigues y cómo.<br>¿Ya pagaste? Te digo dónde estás parado y cómo protegerte.<br>¿Salió mal? Te digo <mark>qué camino te queda</mark>.<br>Cuéntamelo aquí abajo.<time>9:53</time></div></div>
+      </div>
+    </div>
   </section>
 
-  <p class="legal"><span>ESCUDIA · Primero criterio. Después decisión.</span><span>Gianfranco Bringas · abogado</span><a href="cobertura-ergo-capital.html">Ergo Capital en prensa</a><a href="tel:+51992878215">+51 992 878 215</a><a href="privacidad.html">Privacidad</a><span>Cada caso depende de sus hechos, documentos y posibilidades reales.</span></p>
+  <!-- close -->
+  <section class="sec close">
+    <div class="wrap narrow c">
+      <h2>¿Vas a decidir? ¿Ya pagaste? <em>¿Salió mal?</em></h2>
+      <p>Te digo si sigues y cómo, dónde estás parado o qué camino te queda. Antes de que cueste más.</p>
+      <div class="cta-w"><button class="cta" type="button" data-book><span>Revisar mi decisión por US$97 <i aria-hidden="true">→</i></span><small>Garantía de devolución del 100 %</small></button></div>
+      <a class="wa" href="https://wa.me/51992878215?text=Hola%2C%20quiero%20saber%20qu%C3%A9%20hacer%20en%20mi%20caso." target="_blank" rel="noopener">Prefiero escribirte por WhatsApp</a>
+    </div>
+  </section>
 </main>
 
-<footer class="compose" id="compose" aria-label="Escríbele a Gianfranco">
-  <div class="col">
-    <div class="chips" id="chips" aria-live="polite"></div>
-    <form data-ask>
-      <input name="caso" type="text" autocomplete="off" placeholder="Cuéntale tu caso a Gianfranco…" aria-label="Tu caso en una línea" maxlength="400">
-      <button class="send" type="submit" aria-label="Enviar por WhatsApp"><svg viewBox="0 0 24 24"><path d="M3 20.5 21 12 3 3.5 3 10l12 2-12 2z"/></svg></button>
-    </form>
-    <p>Le llega a su WhatsApp con lo que marcaste en las encuestas.</p>
+<footer class="foot">
+  <div class="wrap">
+    <p class="f-b">ESCUDIA <span>· Primero criterio. Después decisión.</span></p>
+    <p class="f-l"><span>Gianfranco Bringas · abogado</span><a href="cobertura-ergo-capital.html">Ergo Capital en prensa</a><a href="tel:+51992878215">+51 992 878 215</a><a href="privacidad.html">Privacidad</a></p>
+    <p class="f-d">Cada caso depende de sus hechos, documentos y posibilidades reales. Escudia no promete rendimientos ni recuperación de fondos.</p>
   </div>
 </footer>
 
@@ -1024,130 +930,60 @@ fbq('track', 'PageView');
 <dialog id="voice" aria-label="Testimonio">
   <div class="vdlg"><button class="x" type="button" data-close aria-label="Cerrar">✕</button><div class="vslot"></div></div>
 </dialog>
+</body>
 
 <script>
 (() => {
   const qs = new URLSearchParams(location.search);
   const STATIC = qs.has('static') || matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (qs.has('static')) document.documentElement.classList.add('static');
-  const DRY = qs.has('dry');
+  const html = document.documentElement;
+  if (qs.has('static')) html.classList.add('static');
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const track = (...a) => { if (typeof window.fbq === 'function') window.fbq(...a); };
-  const WA = '51992878215';
 
-  /* entry: you open his chat. His photo appears in the middle while a gold ring closes around it, then it
-     flies in an arc to its place in the chat bar and the conversation starts. ~1.3 s, never blocks:
-     the page is usable from 0.76 s. Skipped with ?static / reduced motion; ?t=0.4 freezes a frame. */
-  let LOADER = 0;
-  const html = document.documentElement;
+  /* entry: ESCUDIA + his photo while a gold ring closes, then the page rises. ~1.1 s, the page is
+     usable from 0.7 s. Skipped with ?static / reduced motion / back navigation; ?t=0.4 freezes a frame. */
   if (html.classList.contains('ld')) {
-    LOADER = 1000;
     const ov = document.createElement('div');
     ov.className = 'loader'; ov.setAttribute('aria-hidden', 'true');
-    ov.innerHTML = '<div class="ld-who"><span class="ld-pic"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48"/></svg><img src="assets/img/gianfranco-cara.jpg" alt="" width="84" height="84"></span><b>Gianfranco Bringas</b><small>Abogado · litigio y protección patrimonial</small></div>';
+    ov.innerHTML = '<div class="ld-who"><span class="ld-pic"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48"/></svg><img src="assets/img/gianfranco-cara.jpg" alt="" width="84" height="84"></span><b>ESCUDIA</b><small>Gianfranco Bringas · abogado</small></div>';
     document.body.appendChild(ov);
-    const pic = $('.ld-pic', ov), ring = $('circle', ov), name = $('b', ov), sub = $('small', ov);
-    const dest = $('.bar .pic img');
-    const from = pic.getBoundingClientRect(), to = dest.getBoundingClientRect();
-    const dx = to.left + to.width / 2 - (from.left + from.width / 2), dy = to.top + to.height / 2 - (from.top + from.height / 2);
-    const s = to.width / from.width;
-    const EASE = 'cubic-bezier(.2,.8,.2,1)', SOFT = 'cubic-bezier(.65,0,.35,1)';
-    const page = $$('.bar, main, .legal');
+    const E = 'cubic-bezier(.2,.8,.2,1)', S = 'cubic-bezier(.65,0,.35,1)';
+    const heroBits = $$('.top, .hero .pill, .hero h1, .hero .lead, .hero .vsl, .hero .offer, .hero .cta-w, main > section:not(.hero)');
     const anims = [
-      pic.animate([{ opacity: 0, transform: 'scale(.86)' }, { opacity: 1, transform: 'scale(1)' }], { duration: 380, easing: EASE, fill: 'backwards' }),
-      ring.animate([{ strokeDashoffset: 302, opacity: 1 }, { strokeDashoffset: 0, opacity: 1, offset: .75 }, { strokeDashoffset: 0, opacity: 0 }], { duration: 920, delay: 60, easing: SOFT, fill: 'both' }),
-      name.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none', offset: .5 }, { opacity: 1, offset: .82 }, { opacity: 0 }], { duration: 760, delay: 140, easing: EASE, fill: 'both' }),
-      sub.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none', offset: .55 }, { opacity: 1, offset: .82 }, { opacity: 0 }], { duration: 680, delay: 220, easing: EASE, fill: 'both' }),
-      /* the arc: up and over, then down into the bar, and it hands over to the real photo */
-      pic.animate([
-        { transform: 'translate(0,0) scale(1)', opacity: 1 },
-        { transform: `translate(${dx * .42}px,${dy * .62 - 26}px) scale(${(1 + s) / 2})`, opacity: 1, offset: .55 },
-        { transform: `translate(${dx}px,${dy}px) scale(${s})`, opacity: 1, offset: .96 },
-        { transform: `translate(${dx}px,${dy}px) scale(${s})`, opacity: 0 }
-      ], { duration: 600, delay: 720, easing: SOFT, fill: 'forwards' }),
-      ov.animate([{ backgroundColor: 'rgba(246,242,234,1)' }, { backgroundColor: 'rgba(246,242,234,0)' }], { duration: 420, delay: 760, easing: 'ease', fill: 'both' }),
-      ...page.map(el => el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 420, delay: 760, easing: 'ease', fill: 'backwards' })),
-      dest.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 40, delay: 1280, fill: 'backwards' })
+      $('.ld-pic', ov).animate([{ opacity: 0, transform: 'scale(.86)' }, { opacity: 1, transform: 'none' }], { duration: 380, easing: E, fill: 'backwards' }),
+      $('circle', ov).animate([{ strokeDashoffset: 302 }, { strokeDashoffset: 0 }], { duration: 620, delay: 60, easing: S, fill: 'forwards' }),
+      $('b', ov).animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 360, delay: 160, easing: E, fill: 'backwards' }),
+      $('small', ov).animate([{ opacity: 0 }, { opacity: 1 }], { duration: 360, delay: 240, easing: E, fill: 'backwards' }),
+      $('.ld-who', ov).animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'scale(.96)' }], { duration: 300, delay: 720, easing: E, fill: 'forwards' }),
+      ov.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 380, delay: 760, easing: 'ease', fill: 'forwards' }),
+      ...heroBits.map((el, i) => el.animate([{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }], { duration: 640, delay: 760 + Math.min(i, 7) * 70, easing: E, fill: 'backwards' }))
     ];
     html.classList.remove('ld');
-    setTimeout(() => { ov.style.pointerEvents = 'none'; }, 760);
     const t = parseFloat(qs.get('t'));
     if (!isNaN(t)) anims.forEach(a => { a.pause(); a.currentTime = t * 1000; });
     else Promise.all(anims.map(a => a.finished)).then(() => ov.parentNode && ov.parentNode.removeChild(ov));
   }
 
-  /* messages pop in like a chat: the first four on load (they're "typing" at you), the rest as you scroll */
-  const msgs = $$('.msg');
-  const st = $('#st'), bar = $('.bar');
-
-  /* honest status from his real hours (8 a. m.–10 p. m., Lima), never a fake "en línea" */
-  const status = () => {
-    const h = +new Date().toLocaleString('en-US', { timeZone: 'America/Lima', hour: 'numeric', hour12: false }) % 24;
-    const open = h >= 8 && h < 22;
-    bar.classList.toggle('open', open);
-    return open ? '<span class="l">responde hoy hasta las 10 p. m.</span><span class="s">responde hasta 10 p. m.</span>'
-                : '<span class="l">responde desde las 8 a. m.</span><span class="s">responde desde 8 a. m.</span>';
-  };
-  if (st) st.innerHTML = status();
-  if (STATIC || !('IntersectionObserver' in window)) msgs.forEach(m => m.classList.add('in'));
+  /* reveal on scroll */
+  const rv = $$('.sec h2, .sec .k, .facts, .proof, .heard li, .checks li, .gold-line, .mcard, .notes, .sum, .guar, .steps li, .fbox, .close p, .cta-w');
+  if (STATIC || !('IntersectionObserver' in window)) rv.forEach(e => e.classList.add('rv', 'in'));
   else {
-    const intro = $$('.msg.intro');
-    intro.forEach((m, i) => setTimeout(() => m.classList.add('in'), LOADER + 250 + i * 280));
-    const io = new IntersectionObserver(es => es.forEach(e => {
-      if (!e.isIntersecting || e.target.classList.contains('intro')) return;
-      e.target.classList.add('in'); io.unobserve(e.target);
-    }), { rootMargin: '0px 0px -6% 0px' });
-    msgs.filter(m => !m.classList.contains('intro')).forEach(m => io.observe(m));
+    rv.forEach(e => { if (!e.closest('.hero')) e.classList.add('rv'); });
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    $$('.rv').forEach(e => io.observe(e));
   }
 
-  /* VSL plays inside its bubble, with sound */
-  const v = $('#vsl');
-  $('.p', v).addEventListener('click', () => {
+  /* VSL plays in place, with sound */
+  const v = $('#vsl .vframe');
+  $('.play', v).addEventListener('click', () => {
     const x = $('video', v);
     if (!x.src) x.src = x.dataset.src;
     x.hidden = false; x.controls = true; v.classList.add('on');
     x.play().catch(() => {});
     track('trackCustom', 'VerVSL');
   });
-  /* header video icon: go to the VSL bubble and play it */
-  $$('[data-play-vsl]').forEach(b => b.addEventListener('click', () => {
-    v.scrollIntoView({ behavior: STATIC ? 'auto' : 'smooth', block: 'center' });
-    $('.p', v).click();
-  }));
-
-  /* polls */
-  const sigs = $$('.opt[data-sig]'), moms = $$('.opt[data-mom]'), lights = $$('.poll-foot .lights i'), nSig = $('#nSig'), chips = $('#chips');
-  const refresh = () => {
-    const on = sigs.filter(b => b.getAttribute('aria-pressed') === 'true');
-    lights.forEach((l, i) => l.classList.toggle('on', i < on.length));
-    nSig.textContent = on.length;
-    const mom = moms.find(b => b.getAttribute('aria-checked') === 'true');
-    chips.innerHTML = (mom ? `<span>${mom.dataset.mom}</span>` : '') + (on.length ? `<span>${on.length} de 6 tácticas</span>` : '');
-  };
-  sigs.forEach(b => b.addEventListener('click', () => { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true'); refresh(); }));
-  moms.forEach(b => b.addEventListener('click', () => { moms.forEach(x => x.setAttribute('aria-checked', x === b)); refresh(); }));
-
-  /* compose box = footer; appears once the conversation starts */
-  const compose = $('#compose');
-  if (STATIC) compose.classList.add('on'); else setTimeout(() => compose.classList.add('on'), 1500);
-
-  /* send to his WhatsApp */
-  $$('[data-ask]').forEach(f => f.addEventListener('submit', e => {
-    e.preventDefault();
-    const caso = (f.caso.value || '').trim();
-    const mom = moms.find(b => b.getAttribute('aria-checked') === 'true')?.dataset.mom;
-    const marked = sigs.filter(b => b.getAttribute('aria-pressed') === 'true').map(b => b.dataset.sig);
-    let txt = 'Hola, quiero saber qué hacer en mi caso.';
-    if (mom) txt += `\nMomento: ${mom}.`;
-    if (marked.length) txt += `\nTácticas que reconozco (${marked.length} de 6):\n` + marked.map(m => `● ${m}`).join('\n');
-    if (caso) txt += `\nLo que pasó: ${caso}`;
-    const url = `https://wa.me/${WA}?text=${encodeURIComponent(txt)}`;
-    track('track', 'Contact');
-    if (st) { st.textContent = 'abriendo WhatsApp…'; st.classList.add('typing-now'); setTimeout(() => { st.innerHTML = status(); st.classList.remove('typing-now'); }, 2500); }
-    if (DRY) { console.log('[dry] WhatsApp →', url); window.__lastWa = url; return; }
-    window.open(url, '_blank', 'noopener');
-  }));
 
   /* faq tabs */
   const ftabs = $$('.ftab'), fgroups = $$('.fgroup');
@@ -1156,7 +992,7 @@ fbq('track', 'PageView');
     fgroups.forEach(g => { g.hidden = g.dataset.g !== t.dataset.g; });
   }));
 
-  /* dialogs */
+  /* dialogs: calendar (GoHighLevel) and testimonials (Wistia) */
   const open = d => { if (typeof d.showModal === 'function') d.showModal(); };
   $$('dialog').forEach(d => {
     d.addEventListener('click', e => { if (e.target === d || e.target.closest('[data-close]')) d.close(); });
@@ -1177,45 +1013,9 @@ fbq('track', 'PageView');
     const id = b.dataset.wistia;
     if (!wistia) { wistia = true; load('https://fast.wistia.com/player.js'); }
     load(`https://fast.wistia.com/embed/${id}.js`, true);
-    $('.vslot', voice).innerHTML = `<wistia-player media-id="${id}" aspect="0.5625" fit-strategy="cover" autoplay player-color="0b1424"></wistia-player>`;
+    $('.vslot', voice).innerHTML = `<wistia-player media-id="${id}" aspect="0.5625" fit-strategy="cover" autoplay player-color="8c2f39"></wistia-player>`;
     open(voice);
   }));
-
-  /* sections: ⋮ menu + inline links. Jump, then light up the message you landed on */
-  const menu = $('#menu'), more = $('.more');
-  const closeMenu = () => { if (!menu.hidden) { menu.hidden = true; more.setAttribute('aria-expanded', 'false'); } };
-  more?.addEventListener('click', e => {
-    e.stopPropagation();
-    menu.hidden = !menu.hidden; more.setAttribute('aria-expanded', String(!menu.hidden));
-    if (!menu.hidden) $('a', menu).focus({ preventScroll: true });
-  });
-  document.addEventListener('click', e => { if (!e.target.closest('#menu')) closeMenu(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-  $$('.links a, #menu a').forEach(a => a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (!t) return;
-    e.preventDefault(); closeMenu();
-    const m = t.closest('.msg') || t;
-    m.classList.add('in');
-    const target = () => m.getBoundingClientRect().top + scrollY - bar.offsetHeight - 16;
-    window.scrollTo({ top: target(), behavior: STATIC ? 'auto' : 'smooth' });
-    /* lazy images above can change the layout mid-scroll: settle on the exact spot once it stops */
-    const settle = () => { const d = target() - scrollY; if (Math.abs(d) > 4) window.scrollTo({ top: target(), behavior: 'auto' }); };
-    if ('onscrollend' in window) addEventListener('scrollend', settle, { once: true }); else setTimeout(settle, 900);
-    m.classList.remove('flash'); void m.offsetWidth; m.classList.add('flash');
-    history.replaceState(null, '', a.getAttribute('href'));
-  }));
-  /* desktop: the link of the part you're reading stays marked */
-  const linkFor = Object.fromEntries($$('.links a').map(a => [a.getAttribute('href').slice(1), a]));
-  if ('IntersectionObserver' in window) {
-    const spy = new IntersectionObserver(es => es.forEach(e => {
-      if (!e.isIntersecting) return;
-      $$('.links a').forEach(a => a.classList.toggle('on', a === linkFor[e.target.dataset.sec]));
-    }), { rootMargin: '-45% 0px -50% 0px' });
-    [['metodo', '#metodo'], ['casos', '#casos'], ['gianfranco', '#gianfranco'], ['precio', '#precio'], ['preguntas', '#preguntas']].forEach(([k, sel]) => {
-      const el = $(sel)?.closest('.msg') || $(sel); if (el) { el.dataset.sec = k; spy.observe(el); }
-    });
-  }
 
   /* Meta Pixel: WhatsApp or phone link = Contact (same as the previous site) */
   document.addEventListener('click', e => { if (e.target.closest?.('a[href*="wa.me/"], a[href^="tel:"]')) track('track', 'Contact'); }, true);

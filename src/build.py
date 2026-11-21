@@ -26,5 +26,5 @@ out=f'''{head}
 </body>
 </html>
 '''
-open(os.path.join(root,'web/index.html'),'w',encoding='utf-8').write(out)
+open(os.path.join(root,'web/chat.html'),'w',encoding='utf-8').write(out)
 print('ok',len(out))
