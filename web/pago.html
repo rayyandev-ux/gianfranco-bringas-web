@@ -468,6 +468,9 @@ body{font-family:var(--sans);letter-spacing:-.011em}
 .bar .btn.book{min-height:32px;height:32px;padding:0 14px;font-size:13px;box-shadow:none}
 @media(max-width:430px){.bar .btn.book{padding:0 14px}}
 .b .btn{max-width:100%;white-space:normal;text-align:center;line-height:1.2;padding-block:12px}
+/* the slim header pill keeps a 44px touch area */
+.bar .btn.book,.bar .ic{position:relative}
+.bar .btn.book::after,.bar .ic::after{content:"";position:absolute;inset:-6px -3px}
 
 /* pago: same chat system as the home, plus what payment needs */
 .pay .bar .col{gap:6px}
